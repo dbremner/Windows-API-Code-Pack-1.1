@@ -131,7 +131,7 @@ namespace Microsoft.WindowsAPICodePack.Sensors
         /// <returns><b>true</b> if the sensor was removed from the list; otherwise <b>false</b>.</returns>
         public bool Remove(TSensor item)
         {
-            return sensorList.Remove(item); ;
+            return sensorList.Remove(item);
         }
 
         #endregion

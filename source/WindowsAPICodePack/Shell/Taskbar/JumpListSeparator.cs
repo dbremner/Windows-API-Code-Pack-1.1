@@ -51,7 +51,7 @@ namespace Microsoft.WindowsAPICodePack.Taskbar
                     nativePropertyStore.Commit();
                 }
                 
-                return nativeShellLink; ;
+                return nativeShellLink;
             }
         }
 

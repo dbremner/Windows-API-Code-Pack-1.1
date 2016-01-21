@@ -370,7 +370,6 @@ namespace Microsoft.WindowsAPICodePack.Dialogs
                     break;
                 }
             }
-
         }
 
         /// <summary>
@@ -1162,7 +1161,7 @@ namespace Microsoft.WindowsAPICodePack.Dialogs
                         foreach (CommonFileDialogControl control in parent.Controls)
                         {
                             CommonFileDialogTextBox textBox;
-                            CommonFileDialogGroupBox groupBox; ;
+                            CommonFileDialogGroupBox groupBox;
 
                             if ((textBox = control as CommonFileDialogTextBox) != null)
                             {
