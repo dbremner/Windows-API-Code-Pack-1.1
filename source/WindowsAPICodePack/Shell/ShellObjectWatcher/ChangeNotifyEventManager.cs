@@ -84,9 +84,9 @@ namespace Microsoft.WindowsAPICodePack.Shell
             // Removes FromInterrupt flag if pressent
             changeType = changeType & ~ShellObjectChangeTypes.FromInterrupt;
 
-            Delegate del;
             foreach (var change in _changeOrder.Where(x => (x & changeType) != 0))
             {
+                Delegate del;
                 if (_events.TryGetValue(change, out del))
                 {
                     del.DynamicInvoke(sender, args);

@@ -27,9 +27,9 @@ namespace Microsoft.WindowsAPICodePack.Sensors
             keyCollection.GetCount(out items);
             for (uint index = 0; index < items; index++)
             {
-                PropertyKey key;
                 using (PropVariant propValue = new PropVariant())
                 {
+                    PropertyKey key;
                     keyCollection.GetAt(index, out key);
                     valuesCollection.GetValue(ref key, propValue);
 

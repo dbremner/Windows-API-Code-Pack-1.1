@@ -31,13 +31,13 @@ namespace Microsoft.WindowsAPICodePack.Shell
             // and return the read-only collection.
 
             IList<IKnownFolder> foldersList = new List<IKnownFolder>();
-            uint count;
             IntPtr folders = IntPtr.Zero;
 
             try
             {
 
                 KnownFolderManagerClass knownFolderManager = new KnownFolderManagerClass();
+                uint count;
                 knownFolderManager.GetFolderIds(out folders, out count);
 
                 if (count > 0 && folders != IntPtr.Zero)

@@ -47,7 +47,6 @@ namespace Microsoft.WindowsAPICodePack.Shell
             bool isFolder = (sfgao & ShellNativeMethods.ShellFileGetAttributesOptions.Folder) != 0;
 
             // Shell Library
-            ShellLibrary shellLibrary = null;
 
             // Create the right type of ShellObject based on the above information 
 
@@ -60,6 +59,7 @@ namespace Microsoft.WindowsAPICodePack.Shell
             else if (isFolder)
             {
                 // 3. If this is a folder, check for types: Shell Library, Shell Folder or Search Container
+                ShellLibrary shellLibrary = null;
                 if (itemType == ".library-ms" && (shellLibrary = ShellLibrary.FromShellItem(nativeShellItem2, true)) != null)
                 {
                     return shellLibrary; // we already created this above while checking for Library

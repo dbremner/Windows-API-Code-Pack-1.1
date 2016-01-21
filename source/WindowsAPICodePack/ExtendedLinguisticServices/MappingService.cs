@@ -32,12 +32,10 @@ namespace Microsoft.WindowsAPICodePack.ExtendedLinguisticServices
         {
             ThrowIfNotWin7();
 
-            IntPtr servicePointer;
             UInt32 serviceCount = 0;
-            UInt32 hresult = 0;
 
             // First, check to see if we already have the service in the cache:
-            servicePointer = ServiceCache.Instance.GetCachedService(ref serviceIdentifier);
+            IntPtr servicePointer = ServiceCache.Instance.GetCachedService(ref serviceIdentifier);
             if (servicePointer != IntPtr.Zero)
             {
                 _service = servicePointer;
@@ -54,7 +52,7 @@ namespace Microsoft.WindowsAPICodePack.ExtendedLinguisticServices
                     enumOptions._size = InteropTools.SizeOfWin32EnumOptions;
                     Marshal.StructureToPtr(serviceIdentifier, guidPtr, false);
                     enumOptions._pGuid = guidPtr;
-                    hresult = Win32NativeMethods.MappingGetServices(ref enumOptions, ref servicePointer, ref serviceCount);
+                    UInt32 hresult = Win32NativeMethods.MappingGetServices(ref enumOptions, ref servicePointer, ref serviceCount);
                     if (hresult != 0)
                     {
                         throw new LinguisticException(hresult);
@@ -116,10 +114,10 @@ namespace Microsoft.WindowsAPICodePack.ExtendedLinguisticServices
 
             IntPtr servicePointer = IntPtr.Zero;
             UInt32 serviceCount = 0;
-            UInt32 hresult = 0;
             IntPtr guidPointer = IntPtr.Zero;
             try
             {
+                UInt32 hresult = 0;
                 if (options != null)
                 {
                     Win32EnumOptions enumOptions = options._win32EnumOption;
@@ -220,11 +218,10 @@ namespace Microsoft.WindowsAPICodePack.ExtendedLinguisticServices
                 throw new ArgumentOutOfRangeException("index");
             }
 
-            UInt32 hResult = LinguisticException.Fail;
             MappingPropertyBag bag = new MappingPropertyBag(options, text);
             try
             {
-                hResult = Win32NativeMethods.MappingRecognizeText(
+                UInt32 hResult = Win32NativeMethods.MappingRecognizeText(
                     _service, bag._text.AddrOfPinnedObject(), (uint)length, (uint)index,
                     bag._options, ref bag._win32PropertyBag);
                 if (hResult != 0)

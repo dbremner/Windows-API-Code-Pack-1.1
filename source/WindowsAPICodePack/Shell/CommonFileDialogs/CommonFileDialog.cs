@@ -327,10 +327,9 @@ namespace Microsoft.WindowsAPICodePack.Dialogs
         {
             get
             {
-                uint fileType;
-
                 if (nativeDialog != null)
                 {
+                    uint fileType;
                     nativeDialog.GetFileTypeIndex(out fileType);
                     return (int)fileType;
                 }
@@ -357,11 +356,9 @@ namespace Microsoft.WindowsAPICodePack.Dialogs
                 return;
             }
 
-            CommonFileDialogFilter filter = null;
-
             for (uint filtersCounter = 0; filtersCounter < filters.Count; filtersCounter++)
             {
-                filter = (CommonFileDialogFilter)filters[(int)filtersCounter];
+                CommonFileDialogFilter filter = (CommonFileDialogFilter)filters[(int)filtersCounter];
 
                 if (filter.Extensions.Contains(DefaultExtension))
                 {

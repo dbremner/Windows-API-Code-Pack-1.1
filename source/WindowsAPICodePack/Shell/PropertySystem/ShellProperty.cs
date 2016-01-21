@@ -303,8 +303,6 @@ namespace Microsoft.WindowsAPICodePack.Shell.PropertySystem
         /// cannot be formatted for display.</returns>
         public string FormatForDisplay(PropertyDescriptionFormatOptions format)
         {
-            string formattedString;
-
             if (Description == null || Description.NativePropertyDescription == null)
             {
                 // We cannot do anything without a property description
@@ -321,6 +319,7 @@ namespace Microsoft.WindowsAPICodePack.Shell.PropertySystem
                 Marshal.ReleaseComObject(store);
                 store = null;
 
+                string formattedString;
                 HResult hr = Description.NativePropertyDescription.FormatForDisplay(propVar, ref format, out formattedString);
 
                 // Sometimes, the value cannot be displayed properly, such as for blobs

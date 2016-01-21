@@ -735,14 +735,11 @@ namespace Microsoft.WindowsAPICodePack.Dialogs
 
         private static TaskDialogNativeMethods.TaskDialogButton[] BuildButtonStructArray(List<TaskDialogButtonBase> controls)
         {
-            TaskDialogNativeMethods.TaskDialogButton[] buttonStructs;
-            TaskDialogButtonBase button;
-
             int totalButtons = controls.Count;
-            buttonStructs = new TaskDialogNativeMethods.TaskDialogButton[totalButtons];
+            TaskDialogNativeMethods.TaskDialogButton[] buttonStructs = new TaskDialogNativeMethods.TaskDialogButton[totalButtons];
             for (int i = 0; i < totalButtons; i++)
             {
-                button = controls[i];
+                TaskDialogButtonBase button = controls[i];
                 buttonStructs[i] = new TaskDialogNativeMethods.TaskDialogButton(button.Id, button.ToString());
             }
             return buttonStructs;
@@ -1092,7 +1089,6 @@ namespace Microsoft.WindowsAPICodePack.Dialogs
             EventHandler<TaskDialogClosingEventArgs> handler = Closing;
             if (handler != null)
             {
-                TaskDialogButtonBase customButton = null;
                 TaskDialogClosingEventArgs e = new TaskDialogClosingEventArgs();
 
                 // Try to identify the button - is it a standard one?
@@ -1101,7 +1097,7 @@ namespace Microsoft.WindowsAPICodePack.Dialogs
                 // If not, it had better be a custom button...
                 if (buttonClicked == TaskDialogStandardButtons.None)
                 {
-                    customButton = GetButtonForId(id);
+                    TaskDialogButtonBase customButton = GetButtonForId(id);
 
                     // ... or we have a problem.
                     if (customButton == null)
