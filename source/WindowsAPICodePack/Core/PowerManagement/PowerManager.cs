@@ -150,10 +150,8 @@ namespace Microsoft.WindowsAPICodePack.ApplicationServices
         /// <returns>A <see cref="BatteryState"/> instance that represents 
         /// the state of the battery at the time this method was called.</returns>
         /// <exception cref="System.InvalidOperationException">The system does not have a battery.</exception>
-        /// <exception cref="System.PlatformNotSupportedException">Requires XP/Windows Server 2003 or higher.</exception>        
         public static BatteryState GetCurrentBatteryState()
         {
-            CoreHelpers.ThrowIfNotXP();
             return new BatteryState();
         }
 
@@ -163,7 +161,6 @@ namespace Microsoft.WindowsAPICodePack.ApplicationServices
         /// Gets or sets a value that indicates whether the monitor is 
         /// set to remain active.  
         /// </summary>
-        /// <exception cref="T:System.PlatformNotSupportedException">Requires XP/Windows Server 2003 or higher.</exception>
         /// <exception cref="T:System.Security.SecurityException">The caller does not have sufficient privileges to set this property.
         /// </exception>
         /// <remarks>This information is typically used by applications
@@ -176,14 +173,11 @@ namespace Microsoft.WindowsAPICodePack.ApplicationServices
         {
             get
             {
-                CoreHelpers.ThrowIfNotXP();
                 return monitorRequired;
             }
             [System.Security.Permissions.PermissionSetAttribute(System.Security.Permissions.SecurityAction.Demand, Name = "FullTrust")]
             set
             {
-                CoreHelpers.ThrowIfNotXP();
-
                 if (value)
                 {
                     PowerManager.SetThreadExecutionState(ExecutionStates.Continuous | ExecutionStates.DisplayRequired);
@@ -201,7 +195,6 @@ namespace Microsoft.WindowsAPICodePack.ApplicationServices
         /// Gets or sets a value that indicates whether the system 
         /// is required to be in the working state.
         /// </summary>
-        /// <exception cref="System.PlatformNotSupportedException">Requires XP/Windows Server 2003 or higher.</exception>
         /// <exception cref="System.Security.SecurityException">The caller does not have sufficient privileges to set this property.
         /// </exception>
         /// <permission cref="System.Security.Permissions.SecurityPermission"> to set this property. Demand value: <see cref="F:System.Security.Permissions.SecurityAction.Demand"/>; Named Permission Sets: <b>FullTrust</b>.</permission>
@@ -210,15 +203,11 @@ namespace Microsoft.WindowsAPICodePack.ApplicationServices
         {
             get
             {
-                CoreHelpers.ThrowIfNotXP();
-
                 return requestBlockSleep;
             }
             [System.Security.Permissions.PermissionSetAttribute(System.Security.Permissions.SecurityAction.Demand, Name = "FullTrust")]
             set
             {
-                CoreHelpers.ThrowIfNotXP();
-
                 if (value)
                     PowerManager.SetThreadExecutionState(ExecutionStates.Continuous | ExecutionStates.SystemRequired);
                 else
@@ -232,14 +221,11 @@ namespace Microsoft.WindowsAPICodePack.ApplicationServices
         /// Gets a value that indicates whether a battery is present.  
         /// The battery can be a short term battery.
         /// </summary>
-        /// <exception cref="System.PlatformNotSupportedException">Requires XP/Windows Server 2003 or higher.</exception>
         /// <value>A <see cref="System.Boolean"/> value.</value>
         public static bool IsBatteryPresent
         {
             get
             {
-                CoreHelpers.ThrowIfNotXP();
-
                 return Power.GetSystemBatteryState().BatteryPresent;
             }
         }
@@ -247,13 +233,11 @@ namespace Microsoft.WindowsAPICodePack.ApplicationServices
         /// <summary>
         /// Gets a value that indicates whether the battery is a short term battery. 
         /// </summary>
-        /// <exception cref="System.PlatformNotSupportedException">Requires XP/Windows Server 2003 or higher.</exception>
         /// <value>A <see cref="System.Boolean"/> value.</value>
         public static bool IsBatteryShortTerm
         {
             get
             {
-                CoreHelpers.ThrowIfNotXP();
                 return Power.GetSystemPowerCapabilities().BatteriesAreShortTerm;
             }
         }
@@ -262,14 +246,11 @@ namespace Microsoft.WindowsAPICodePack.ApplicationServices
         /// Gets a value that indicates a UPS is present to prevent 
         /// sudden loss of power.
         /// </summary>
-        /// <exception cref="System.PlatformNotSupportedException">Requires XP/Windows Server 2003 or higher.</exception>
         /// <value>A <see cref="System.Boolean"/> value.</value>
         public static bool IsUpsPresent
         {
             get
             {
-                CoreHelpers.ThrowIfNotXP();
-
                 // Because the native method doesn't return the correct value for .UpsPresent,
                 // use .BatteriesAreShortTerm and .SystemBatteriesPresent to check for UPS
                 PowerManagementNativeMethods.SystemPowerCapabilities batt = Power.GetSystemPowerCapabilities();

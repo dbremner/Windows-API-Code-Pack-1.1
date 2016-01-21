@@ -187,15 +187,6 @@ namespace Microsoft.WindowsAPICodePack.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Only supported on Windows XP or newer..
-        /// </summary>
-        internal static string CoreHelpersRunningOnXp {
-            get {
-                return ResourceManager.GetString("CoreHelpersRunningOnXp", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Dialog cannot have more than one control with the same name..
         /// </summary>
         internal static string DialogCollectionCannotHaveDuplicateNames {

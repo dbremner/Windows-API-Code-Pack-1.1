@@ -13,29 +13,6 @@ namespace MS.WindowsAPICodePack.Internal
     public static class CoreHelpers
     {
         /// <summary>
-        /// Determines if the application is running on XP
-        /// </summary>
-        public static bool RunningOnXP
-        {
-            get
-            {
-                return Environment.OSVersion.Platform == PlatformID.Win32NT &&
-                    Environment.OSVersion.Version.Major >= 5;
-            }
-        }
-
-        /// <summary>
-        /// Throws PlatformNotSupportedException if the application is not running on Windows XP
-        /// </summary>
-        public static void ThrowIfNotXP()
-        {
-            if (!CoreHelpers.RunningOnXP)
-            {
-                throw new PlatformNotSupportedException(LocalizedMessages.CoreHelpersRunningOnXp);
-            }
-        }
-
-        /// <summary>
         /// Determines if the application is running on Vista
         /// </summary>
         public static bool RunningOnVista

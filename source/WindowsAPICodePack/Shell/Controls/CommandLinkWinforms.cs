@@ -121,7 +121,6 @@ namespace Microsoft.WindowsAPICodePack.Controls.WindowsForms
 
         private static void SetNote(System.Windows.Forms.Button button, string text)
         {
-            // This call will be ignored on versions earlier than Windows Vista.
             CoreNativeMethods.SendMessage(button.Handle, ShellNativeMethods.SetNote, 0, text);
         }
 

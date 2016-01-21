@@ -28,8 +28,6 @@ namespace Microsoft.WindowsAPICodePack.ApplicationServices
         /// <summary>
         /// Enables away mode. This value must be specified with ES_CONTINUOUS.
         /// Away mode should be used only by media-recording and media-distribution applications that must perform critical background processing on desktop computers while the computer appears to be sleeping. See Remarks.
-        /// 
-        /// Windows Server 2003 and Windows XP/2000:  ES_AWAYMODE_REQUIRED is not supported.
         /// </summary>
         AwayModeRequired = 0x40,
 
