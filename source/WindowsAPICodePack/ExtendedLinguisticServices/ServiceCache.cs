@@ -11,14 +11,14 @@ namespace Microsoft.WindowsAPICodePack.ExtendedLinguisticServices
     // This singleton object is correctly finalized on appdomain unload.    
     internal class ServiceCache : CriticalFinalizerObject
     {
-        private static ServiceCache staticInstance = new ServiceCache();
+        private static readonly ServiceCache staticInstance = new ServiceCache();
 
         // Guid -> IntPtr
         private Dictionary<Guid, IntPtr> _guidToService = new Dictionary<Guid, IntPtr>();
         // IntPtr -> this (serves as a set)
         private List<IntPtr> _servicePointers = new List<IntPtr>();
         // The lock
-        private ReaderWriterLockSlim _cacheLock = new ReaderWriterLockSlim();
+        private readonly ReaderWriterLockSlim _cacheLock = new ReaderWriterLockSlim();
         // Active resources refcount, signed 64-bit
         private long _resourceRefCount;
         // Specifies if the object has been finalized:

@@ -15,8 +15,8 @@ namespace Microsoft.WindowsAPICodePack.ApplicationServices
     /// </remarks>
     public class RecoverySettings
     {
-        private RecoveryData recoveryData;
-        private uint pingInterval;
+        private readonly RecoveryData recoveryData;
+        private readonly uint pingInterval;
 
         /// <summary>
         /// Initializes a new instance of the <b>RecoverySettings</b> class.

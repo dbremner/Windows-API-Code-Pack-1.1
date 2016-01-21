@@ -12,7 +12,7 @@ namespace Microsoft.WindowsAPICodePack.ApplicationServices
 
         internal delegate UInt32 InternalRecoveryCallback(IntPtr state);
 
-        private static InternalRecoveryCallback internalCallback = new InternalRecoveryCallback(InternalRecoveryHandler);
+        private static readonly InternalRecoveryCallback internalCallback = new InternalRecoveryCallback(InternalRecoveryHandler);
         internal static InternalRecoveryCallback InternalCallback { get { return internalCallback; } }
 
         private static UInt32 InternalRecoveryHandler(IntPtr parameter)

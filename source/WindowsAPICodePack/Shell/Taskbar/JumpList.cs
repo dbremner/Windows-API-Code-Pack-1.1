@@ -55,7 +55,7 @@ namespace Microsoft.WindowsAPICodePack.Taskbar
         private readonly object syncLock = new Object();
 
         // Native implementation of destination list
-        private ICustomDestinationList customDestinationList;
+        private readonly ICustomDestinationList customDestinationList;
 
         #region Properties
 

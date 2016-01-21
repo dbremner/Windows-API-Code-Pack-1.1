@@ -822,7 +822,7 @@ namespace Microsoft.WindowsAPICodePack.Sensors
     public struct DataFieldInfo : IEquatable<DataFieldInfo>
     {
         private PropertyKey _propKey;
-        private object _value;
+        private readonly object _value;
 
         /// <summary>
         /// Initializes the structure.

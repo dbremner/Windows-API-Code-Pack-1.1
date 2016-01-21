@@ -11,8 +11,8 @@ namespace Microsoft.WindowsAPICodePack.ExtendedLinguisticServices
     /// </summary>
     public struct MappingResultState
     {
-        private int _hResult;
-        private string _errorMessage;
+        private readonly int _hResult;
+        private readonly string _errorMessage;
 
         internal MappingResultState(int hResult, string errorMessage)
         {

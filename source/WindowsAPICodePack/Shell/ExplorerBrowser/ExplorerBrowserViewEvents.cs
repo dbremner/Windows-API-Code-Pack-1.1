@@ -24,7 +24,7 @@ namespace MS.WindowsAPICodePack.Internal
 
         private Guid IID_DShellFolderViewEvents = new Guid(ExplorerBrowserIIDGuid.DShellFolderViewEvents);
         private Guid IID_IDispatch = new Guid(ExplorerBrowserIIDGuid.IDispatch);
-        private ExplorerBrowser parent;
+        private readonly ExplorerBrowser parent;
         #endregion
 
         #region contstruction

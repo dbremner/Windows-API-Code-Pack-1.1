@@ -15,7 +15,7 @@ namespace Microsoft.WindowsAPICodePack.Dialogs
         // We'll keep a parsed list of separate 
         // extensions and rebuild as needed.
 
-        private Collection<string> extensions;
+        private readonly Collection<string> extensions;
         private string rawDisplayName;
 
         /// <summary>

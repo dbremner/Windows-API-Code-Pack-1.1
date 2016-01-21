@@ -25,16 +25,16 @@ namespace Microsoft.WindowsAPICodePack.Controls.WindowsPresentationFoundation
             set;
         }
 
-        private ObservableCollection<ShellObject> selectedItems;
-        private ObservableCollection<ShellObject> items;
-        private ObservableCollection<ShellObject> navigationLog;
-        private DispatcherTimer dtCLRUpdater = new DispatcherTimer();
+        private readonly ObservableCollection<ShellObject> selectedItems;
+        private readonly ObservableCollection<ShellObject> items;
+        private readonly ObservableCollection<ShellObject> navigationLog;
+        private readonly DispatcherTimer dtCLRUpdater = new DispatcherTimer();
 
         private ShellObject initialNavigationTarget;
         private ExplorerBrowserViewMode? initialViewMode;
 
-        private AutoResetEvent itemsChanged = new AutoResetEvent(false);
-        private AutoResetEvent selectionChanged = new AutoResetEvent(false);
+        private readonly AutoResetEvent itemsChanged = new AutoResetEvent(false);
+        private readonly AutoResetEvent selectionChanged = new AutoResetEvent(false);
         private int selectionChangeWaitCount;
 
         /// <summary>

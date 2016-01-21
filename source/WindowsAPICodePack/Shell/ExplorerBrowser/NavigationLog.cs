@@ -72,7 +72,7 @@ namespace Microsoft.WindowsAPICodePack.Controls
         {
             get { foreach (var obj in _locations) { yield return obj; } }
         }
-        private List<ShellObject> _locations = new List<ShellObject>();
+        private readonly List<ShellObject> _locations = new List<ShellObject>();
 
         /// <summary>
         /// An index into the Locations collection. The ShellObject pointed to 
@@ -112,7 +112,7 @@ namespace Microsoft.WindowsAPICodePack.Controls
 
         #region implementation
 
-        private ExplorerBrowser parent = null;
+        private readonly ExplorerBrowser parent = null;
 
         /// <summary>
         /// The pending navigation log action. null if the user is not navigating 

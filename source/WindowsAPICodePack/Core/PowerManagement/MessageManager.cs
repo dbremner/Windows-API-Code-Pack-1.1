@@ -15,7 +15,7 @@ namespace Microsoft.WindowsAPICodePack.ApplicationServices
     /// </summary>
     internal static class MessageManager
     {
-        private static object lockObject = new object();
+        private static readonly object lockObject = new object();
         private static PowerRegWindow window;
 
         #region Internal static methods
@@ -67,8 +67,8 @@ namespace Microsoft.WindowsAPICodePack.ApplicationServices
         /// </summary>
         internal class PowerRegWindow : Form
         {
-            private Hashtable eventList = new Hashtable();
-            private ReaderWriterLock readerWriterLock = new ReaderWriterLock();
+            private readonly Hashtable eventList = new Hashtable();
+            private readonly ReaderWriterLock readerWriterLock = new ReaderWriterLock();
 
             internal PowerRegWindow()
                 : base()

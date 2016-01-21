@@ -461,7 +461,7 @@ namespace Microsoft.WindowsAPICodePack.Shell
             }
             return hashValue.Value;
         }
-        private static MD5CryptoServiceProvider hashProvider = new MD5CryptoServiceProvider();
+        private static readonly MD5CryptoServiceProvider hashProvider = new MD5CryptoServiceProvider();
         private int? hashValue;
 
         /// <summary>

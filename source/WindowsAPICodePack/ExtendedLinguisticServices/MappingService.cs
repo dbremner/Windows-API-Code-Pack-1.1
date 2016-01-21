@@ -17,7 +17,7 @@ namespace Microsoft.WindowsAPICodePack.ExtendedLinguisticServices
     public class MappingService
     {
         private Win32Service _win32Service;
-        private IntPtr _service;
+        private readonly IntPtr _service;
 
         /// <summary>
         /// Constructs a new <see cref="MappingService">MappingService</see> object by instanciating an ELS service

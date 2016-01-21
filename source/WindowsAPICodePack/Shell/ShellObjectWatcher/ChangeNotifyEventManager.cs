@@ -41,7 +41,7 @@ namespace Microsoft.WindowsAPICodePack.Shell
         };
         #endregion
 
-        private Dictionary<ShellObjectChangeTypes, Delegate> _events = new Dictionary<ShellObjectChangeTypes, Delegate>();
+        private readonly Dictionary<ShellObjectChangeTypes, Delegate> _events = new Dictionary<ShellObjectChangeTypes, Delegate>();
 
         public void Register(ShellObjectChangeTypes changeType, Delegate handler)
         {

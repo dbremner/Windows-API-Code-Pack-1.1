@@ -257,7 +257,7 @@ namespace Microsoft.WindowsAPICodePack.Dialogs
             }
         }
 
-        private DialogControlCollection<TaskDialogControl> controls;
+        private readonly DialogControlCollection<TaskDialogControl> controls;
         /// <summary>
         /// Gets a value that contains the TaskDialog controls.
         /// </summary>

@@ -483,8 +483,7 @@ namespace Microsoft.WindowsAPICodePack.Shell
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
         internal struct ThumbnailId
         {
-            [MarshalAs(UnmanagedType.LPArray, SizeParamIndex = 16)]
-            byte rgbKey;
+            [MarshalAs(UnmanagedType.LPArray, SizeParamIndex = 16)] readonly byte rgbKey;
         }
 
         #endregion

@@ -9,7 +9,7 @@ namespace Microsoft.WindowsAPICodePack.Shell
 {
     internal class EnumUnknownClass : IEnumUnknown
     {
-        List<ICondition> conditionList = new List<ICondition>();
+        readonly List<ICondition> conditionList = new List<ICondition>();
         int current = -1;
 
         internal EnumUnknownClass(ICondition[] conditions)

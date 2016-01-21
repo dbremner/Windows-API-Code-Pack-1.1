@@ -36,7 +36,7 @@ namespace Microsoft.WindowsAPICodePack.Dialogs
                 }
             }
         }
-        private Collection<string> filenames;
+        private readonly Collection<string> filenames;
         internal readonly Collection<IShellItem> items;
         internal DialogShowState showState = DialogShowState.PreShow;
 
@@ -117,7 +117,7 @@ namespace Microsoft.WindowsAPICodePack.Dialogs
         /// </summary>
         public event EventHandler DialogOpening;
 
-        private CommonFileDialogControlCollection<CommonFileDialogControl> controls;
+        private readonly CommonFileDialogControlCollection<CommonFileDialogControl> controls;
         /// <summary>
         /// Gets the collection of controls for the dialog.
         /// </summary>
@@ -126,7 +126,7 @@ namespace Microsoft.WindowsAPICodePack.Dialogs
             get { return controls; }
         }
 
-        private CommonFileDialogFilterCollection filters;
+        private readonly CommonFileDialogFilterCollection filters;
         /// <summary>
         /// Gets the filters used by the dialog.
         /// </summary>
@@ -1142,7 +1142,7 @@ namespace Microsoft.WindowsAPICodePack.Dialogs
 
         private class NativeDialogEventSink : IFileDialogEvents, IFileDialogControlEvents
         {
-            private CommonFileDialog parent;
+            private readonly CommonFileDialog parent;
             private bool firstFolderChanged = true;
 
             public NativeDialogEventSink(CommonFileDialog commonDialog)

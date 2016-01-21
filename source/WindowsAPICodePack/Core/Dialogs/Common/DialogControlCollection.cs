@@ -13,7 +13,7 @@ namespace Microsoft.WindowsAPICodePack.Dialogs
     /// <typeparam name="T">DialogControl</typeparam>
     public sealed class DialogControlCollection<T> : Collection<T> where T : DialogControl
     {
-        private IDialogControlHost hostingDialog;
+        private readonly IDialogControlHost hostingDialog;
 
         internal DialogControlCollection(IDialogControlHost host)
         {

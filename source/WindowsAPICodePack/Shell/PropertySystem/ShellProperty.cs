@@ -24,7 +24,7 @@ namespace Microsoft.WindowsAPICodePack.Shell.PropertySystem
         private PropertyKey propertyKey;
         string imageReferencePath = null;
         int? imageReferenceIconIndex;
-        private ShellPropertyDescription description = null;
+        private readonly ShellPropertyDescription description = null;
 
         #endregion
 

@@ -21,12 +21,12 @@ namespace Microsoft.WindowsAPICodePack.Dialogs
     /// </remarks>
     internal class NativeTaskDialog : IDisposable
     {
-        private TaskDialogNativeMethods.TaskDialogConfiguration nativeDialogConfig;
-        private NativeTaskDialogSettings settings;
+        private readonly TaskDialogNativeMethods.TaskDialogConfiguration nativeDialogConfig;
+        private readonly NativeTaskDialogSettings settings;
         private IntPtr hWndDialog;
-        private TaskDialog outerDialog;
+        private readonly TaskDialog outerDialog;
 
-        private IntPtr[] updatedStrings = new IntPtr[Enum.GetNames(typeof(TaskDialogNativeMethods.TaskDialogElements)).Length];
+        private readonly IntPtr[] updatedStrings = new IntPtr[Enum.GetNames(typeof(TaskDialogNativeMethods.TaskDialogElements)).Length];
         private IntPtr buttonArray, radioButtonArray;
 
         // Flag tracks whether our first radio 

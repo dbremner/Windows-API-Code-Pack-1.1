@@ -12,7 +12,7 @@ namespace Microsoft.WindowsAPICodePack.ShellExtensions
     public class StorageStream : Stream, IDisposable
     {
         IStream _stream;
-        private bool _isReadOnly = false;
+        private readonly bool _isReadOnly = false;
 
         internal StorageStream(IStream stream, bool readOnly)
         {

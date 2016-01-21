@@ -189,18 +189,18 @@ namespace Microsoft.WindowsAPICodePack.Sensors
         #endregion
 
         #region implementation
-        private static NativeISensorManager sensorManager = new NativeSensorManager();
-        private static nativeSensorManagerEventSink sensorManagerEventSink = new nativeSensorManagerEventSink();
+        private static readonly NativeISensorManager sensorManager = new NativeSensorManager();
+        private static readonly nativeSensorManagerEventSink sensorManagerEventSink = new nativeSensorManagerEventSink();
 
         /// <summary>
         /// Sensor type GUID -> .NET Type + report type
         /// </summary>
-        private static Dictionary<Guid, SensorTypeData> guidToSensorDescr = new Dictionary<Guid, SensorTypeData>();
+        private static readonly Dictionary<Guid, SensorTypeData> guidToSensorDescr = new Dictionary<Guid, SensorTypeData>();
 
         /// <summary>
         /// .NET type -> type GUID.
         /// </summary>      
-        private static Dictionary<Type, Guid> sensorTypeToGuid = new Dictionary<Type, Guid>();
+        private static readonly Dictionary<Type, Guid> sensorTypeToGuid = new Dictionary<Type, Guid>();
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1810:InitializeReferenceTypeStaticFieldsInline")]
         static SensorManager()
@@ -326,8 +326,8 @@ namespace Microsoft.WindowsAPICodePack.Sensors
     /// </summary>
     internal struct SensorTypeData
     {
-        private Type sensorType;
-        private SensorDescriptionAttribute sda;
+        private readonly Type sensorType;
+        private readonly SensorDescriptionAttribute sda;
 
         public SensorTypeData(Type sensorClassType, SensorDescriptionAttribute sda)
         {

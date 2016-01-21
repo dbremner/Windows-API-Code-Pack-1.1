@@ -20,9 +20,9 @@ namespace Microsoft.WindowsAPICodePack.Shell
         #region Private Fields
 
         private INativeShellLibrary nativeShellLibrary;
-        private IKnownFolder knownFolder;
+        private readonly IKnownFolder knownFolder;
 
-        private static Guid[] FolderTypesGuids = 
+        private static readonly Guid[] FolderTypesGuids = 
         {
             new Guid(ShellKFIDGuid.GenericLibrary),
             new Guid(ShellKFIDGuid.DocumentsLibrary),

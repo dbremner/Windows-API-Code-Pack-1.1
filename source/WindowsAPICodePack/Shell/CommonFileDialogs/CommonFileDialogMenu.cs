@@ -13,7 +13,7 @@ namespace Microsoft.WindowsAPICodePack.Dialogs.Controls
     [ContentProperty("Items")]
     public class CommonFileDialogMenu : CommonFileDialogProminentControl
     {
-        private Collection<CommonFileDialogMenuItem> items = new Collection<CommonFileDialogMenuItem>();
+        private readonly Collection<CommonFileDialogMenuItem> items = new Collection<CommonFileDialogMenuItem>();
         /// <summary>
         /// Gets the collection of CommonFileDialogMenuItem objects.
         /// </summary>

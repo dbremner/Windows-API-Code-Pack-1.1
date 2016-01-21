@@ -78,12 +78,12 @@ namespace Microsoft.WindowsAPICodePack.Dialogs
             }
 
             [FieldOffset(0)]
-            private int mainIcon;
+            private readonly int mainIcon;
 
             // This field is used to adjust the length of the structure on 32/64bit OS.
             [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
             [FieldOffset(0)]
-            private IntPtr spacer;
+            private readonly IntPtr spacer;
 
             /// <summary>
             /// Gets the handle to the Icon

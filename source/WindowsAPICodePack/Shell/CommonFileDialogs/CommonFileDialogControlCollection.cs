@@ -14,7 +14,7 @@ namespace Microsoft.WindowsAPICodePack.Dialogs.Controls
     /// <typeparam name="T">DialogControl</typeparam>
     public sealed class CommonFileDialogControlCollection<T> : Collection<T> where T : DialogControl
     {
-        private IDialogControlHost hostingDialog;
+        private readonly IDialogControlHost hostingDialog;
 
         internal CommonFileDialogControlCollection(IDialogControlHost host)
         {

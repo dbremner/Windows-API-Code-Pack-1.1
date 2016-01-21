@@ -15,8 +15,8 @@ namespace Microsoft.WindowsAPICodePack.ApplicationServices
     /// terminating.</remarks>
     public class RestartSettings
     {
-        private string command;
-        private RestartRestrictions restrictions;
+        private readonly string command;
+        private readonly RestartRestrictions restrictions;
 
         /// <summary>
         /// Creates a new instance of the RestartSettings class.

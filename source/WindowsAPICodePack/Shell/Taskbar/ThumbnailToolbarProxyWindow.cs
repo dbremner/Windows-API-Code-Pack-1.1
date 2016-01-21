@@ -10,7 +10,7 @@ namespace Microsoft.WindowsAPICodePack.Taskbar
     internal class ThumbnailToolbarProxyWindow : NativeWindow, IDisposable
     {
         private ThumbnailToolBarButton[] _thumbnailButtons;
-        private IntPtr _internalWindowHandle;
+        private readonly IntPtr _internalWindowHandle;
 
         internal System.Windows.UIElement WindowsControl { get; set; }
 

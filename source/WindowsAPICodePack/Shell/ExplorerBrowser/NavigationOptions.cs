@@ -10,7 +10,8 @@ namespace Microsoft.WindowsAPICodePack.Controls
     public class ExplorerBrowserNavigationOptions
     {
         #region construction
-        ExplorerBrowser eb;
+
+        readonly ExplorerBrowser eb;
         internal ExplorerBrowserNavigationOptions(ExplorerBrowser eb)
         {
             this.eb = eb;

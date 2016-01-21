@@ -16,7 +16,7 @@ namespace Microsoft.WindowsAPICodePack.Net
     {
         #region Private Fields
 
-        INetworkConnection networkConnection;
+        readonly INetworkConnection networkConnection;
 
         #endregion // Private Fields
 

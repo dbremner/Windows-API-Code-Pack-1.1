@@ -11,7 +11,7 @@ namespace Microsoft.WindowsAPICodePack.Shell
     internal static class MessageListenerFilter
     {
         private static readonly object _registerLock = new object();
-        private static List<RegisteredListener> _packages = new List<RegisteredListener>();
+        private static readonly List<RegisteredListener> _packages = new List<RegisteredListener>();
 
         public static MessageListenerFilterRegistrationResult Register(Action<WindowMessageEventArgs> callback)
         {

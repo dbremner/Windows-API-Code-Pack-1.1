@@ -70,6 +70,6 @@ namespace Microsoft.WindowsAPICodePack.Sensors
         {
             get { return acceleration[(int)axis]; }
         }
-        private float[] acceleration = new float[3];
+        private readonly float[] acceleration = new float[3];
     }
 }
