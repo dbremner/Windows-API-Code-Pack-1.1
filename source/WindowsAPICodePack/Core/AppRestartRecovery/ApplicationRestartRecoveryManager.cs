@@ -31,7 +31,7 @@ namespace Microsoft.WindowsAPICodePack.ApplicationServices
         /// that it is still performing recovery work.</remarks>        
         public static void RegisterForApplicationRecovery(RecoverySettings settings)
         {
-            if (settings == null) { throw new ArgumentNullException("settings"); }
+            if (settings == null) { throw new ArgumentNullException(nameof(settings)); }
 
             GCHandle handle = GCHandle.Alloc(settings.RecoveryData);
 
@@ -42,7 +42,7 @@ namespace Microsoft.WindowsAPICodePack.ApplicationServices
             {
                 if (hr == HResult.InvalidArguments)
                 {
-                    throw new ArgumentException(LocalizedMessages.ApplicationRecoveryBadParameters, "settings");
+                    throw new ArgumentException(LocalizedMessages.ApplicationRecoveryBadParameters, nameof(settings));
                 }
 
                 throw new ApplicationRecoveryException(LocalizedMessages.ApplicationRecoveryFailedToRegister);
@@ -132,7 +132,7 @@ namespace Microsoft.WindowsAPICodePack.ApplicationServices
         /// <remarks>A registered application will not be restarted if it executed for less than 60 seconds before terminating.</remarks>
         public static void RegisterForApplicationRestart(RestartSettings settings)
         {
-            if (settings == null) { throw new ArgumentNullException("settings"); }
+            if (settings == null) { throw new ArgumentNullException(nameof(settings)); }
 
             HResult hr = AppRestartRecoveryNativeMethods.RegisterApplicationRestart(settings.Command, settings.Restrictions);
 

@@ -79,11 +79,11 @@ namespace Microsoft.WindowsAPICodePack.Taskbar
         {
             if (parentWindowHandle == IntPtr.Zero)
             {
-                throw new ArgumentException(LocalizedMessages.TabbedThumbnailZeroParentHandle, "parentWindowHandle");
+                throw new ArgumentException(LocalizedMessages.TabbedThumbnailZeroParentHandle, nameof(parentWindowHandle));
             }
             if (windowHandle == IntPtr.Zero)
             {
-                throw new ArgumentException(LocalizedMessages.TabbedThumbnailZeroChildHandle, "windowHandle");
+                throw new ArgumentException(LocalizedMessages.TabbedThumbnailZeroChildHandle, nameof(windowHandle));
             }
 
             WindowHandle = windowHandle;
@@ -103,11 +103,11 @@ namespace Microsoft.WindowsAPICodePack.Taskbar
         {
             if (parentWindowHandle == IntPtr.Zero)
             {
-                throw new ArgumentException(LocalizedMessages.TabbedThumbnailZeroParentHandle, "parentWindowHandle");
+                throw new ArgumentException(LocalizedMessages.TabbedThumbnailZeroParentHandle, nameof(parentWindowHandle));
             }
             if (control == null)
             {
-                throw new ArgumentNullException("control");
+                throw new ArgumentNullException(nameof(control));
             }
 
             WindowHandle = control.Handle;
@@ -128,11 +128,11 @@ namespace Microsoft.WindowsAPICodePack.Taskbar
         {
             if (windowsControl == null)
             {
-                throw new ArgumentNullException("windowsControl");
+                throw new ArgumentNullException(nameof(windowsControl));
             }
             if (parentWindow == null)
             {
-                throw new ArgumentNullException("parentWindow");
+                throw new ArgumentNullException(nameof(parentWindow));
             }
 
             WindowHandle = IntPtr.Zero;

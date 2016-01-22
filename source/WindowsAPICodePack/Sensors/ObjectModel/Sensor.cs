@@ -399,7 +399,7 @@ namespace Microsoft.WindowsAPICodePack.Sensors
         {
             if (propKeys == null || propKeys.Length == 0)
             {
-                throw new ArgumentException(LocalizedMessages.SensorEmptyProperties, "propKeys");
+                throw new ArgumentException(LocalizedMessages.SensorEmptyProperties, nameof(propKeys));
             }
 
             IPortableDeviceKeyCollection keyCollection = new PortableDeviceKeyCollection();
@@ -504,7 +504,7 @@ namespace Microsoft.WindowsAPICodePack.Sensors
         {
             if (propIndexes == null || propIndexes.Length == 0)
             {
-                throw new ArgumentNullException("propIndexes");
+                throw new ArgumentNullException(nameof(propIndexes));
             }
 
             IPortableDeviceKeyCollection keyCollection = new PortableDeviceKeyCollection();
@@ -566,7 +566,7 @@ namespace Microsoft.WindowsAPICodePack.Sensors
         {
             if (data == null || data.Length == 0)
             {
-                throw new ArgumentException(LocalizedMessages.SensorEmptyData, "data");
+                throw new ArgumentException(LocalizedMessages.SensorEmptyData, nameof(data));
             }
 
             IPortableDeviceValues pdv = new PortableDeviceValues();
@@ -580,7 +580,7 @@ namespace Microsoft.WindowsAPICodePack.Sensors
                     throw new ArgumentException(
                         string.Format(System.Globalization.CultureInfo.InvariantCulture,
                             LocalizedMessages.SensorNullValueAtIndex, i),
-                        "data");
+                        nameof(data));
                 }
 
                 try

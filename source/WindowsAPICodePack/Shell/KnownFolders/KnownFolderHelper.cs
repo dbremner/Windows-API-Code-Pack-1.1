@@ -44,7 +44,7 @@ namespace Microsoft.WindowsAPICodePack.Shell
             IKnownFolder kf = GetKnownFolder(knownFolderNative);
             if (kf == null)
             {
-                throw new ArgumentException(LocalizedMessages.KnownFolderInvalidGuid, "knownFolderId");
+                throw new ArgumentException(LocalizedMessages.KnownFolderInvalidGuid, nameof(knownFolderId));
             }
             return kf;
         }
@@ -120,7 +120,7 @@ namespace Microsoft.WindowsAPICodePack.Shell
 
             if (kf == null)
             {
-                throw new ArgumentException(LocalizedMessages.ShellInvalidCanonicalName, "canonicalName");
+                throw new ArgumentException(LocalizedMessages.ShellInvalidCanonicalName, nameof(canonicalName));
             }
             return kf;
         }
@@ -147,7 +147,7 @@ namespace Microsoft.WindowsAPICodePack.Shell
         {
             if (parsingName == null)
             {
-                throw new ArgumentNullException("parsingName");
+                throw new ArgumentNullException(nameof(parsingName));
             }
 
             IntPtr pidl = IntPtr.Zero;
@@ -159,7 +159,7 @@ namespace Microsoft.WindowsAPICodePack.Shell
 
                 if (pidl == IntPtr.Zero)
                 {
-                    throw new ArgumentException(LocalizedMessages.KnownFolderParsingName, "parsingName");
+                    throw new ArgumentException(LocalizedMessages.KnownFolderParsingName, nameof(parsingName));
                 }
 
                 // It's probably a special folder, try to get it                
@@ -169,7 +169,7 @@ namespace Microsoft.WindowsAPICodePack.Shell
                     IKnownFolder kf = KnownFolderHelper.GetKnownFolder(knownFolderNative);
                     if (kf == null)
                     {
-                        throw new ArgumentException(LocalizedMessages.KnownFolderParsingName, "parsingName");
+                        throw new ArgumentException(LocalizedMessages.KnownFolderParsingName, nameof(parsingName));
                     }
                     return kf;
                 }
@@ -182,13 +182,13 @@ namespace Microsoft.WindowsAPICodePack.Shell
 
                 if (pidl2 == IntPtr.Zero)
                 {
-                    throw new ArgumentException(LocalizedMessages.KnownFolderParsingName, "parsingName");
+                    throw new ArgumentException(LocalizedMessages.KnownFolderParsingName, nameof(parsingName));
                 }
 
                 IKnownFolder kf2 = KnownFolderHelper.GetKnownFolder(KnownFolderHelper.FromPIDL(pidl));
                 if (kf2 == null)
                 {
-                    throw new ArgumentException(LocalizedMessages.KnownFolderParsingName, "parsingName");
+                    throw new ArgumentException(LocalizedMessages.KnownFolderParsingName, nameof(parsingName));
                 }
 
                 return kf2;

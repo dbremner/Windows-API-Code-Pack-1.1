@@ -136,7 +136,7 @@ namespace Microsoft.WindowsAPICodePack.ShellExtensions
 
         protected override void SetFont(Interop.LogFont font)
         {
-            if (font == null) { throw new ArgumentNullException("font"); }
+            if (font == null) { throw new ArgumentNullException(nameof(font)); }
             
             Control.FontFamily = new FontFamily(font.FaceName);
             Control.FontSize = font.Height;

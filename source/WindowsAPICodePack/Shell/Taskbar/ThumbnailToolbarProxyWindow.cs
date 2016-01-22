@@ -28,11 +28,11 @@ namespace Microsoft.WindowsAPICodePack.Taskbar
         {
             if (windowHandle == IntPtr.Zero)
             {
-                throw new ArgumentException(LocalizedMessages.CommonFileDialogInvalidHandle, "windowHandle");
+                throw new ArgumentException(LocalizedMessages.CommonFileDialogInvalidHandle, nameof(windowHandle));
             }
             if (buttons != null && buttons.Length == 0)
             {
-                throw new ArgumentException(LocalizedMessages.ThumbnailToolbarManagerNullEmptyArray, "buttons");
+                throw new ArgumentException(LocalizedMessages.ThumbnailToolbarManagerNullEmptyArray, nameof(buttons));
             }
 
             _internalWindowHandle = windowHandle;
@@ -48,10 +48,10 @@ namespace Microsoft.WindowsAPICodePack.Taskbar
 
         internal ThumbnailToolbarProxyWindow(System.Windows.UIElement windowsControl, ThumbnailToolBarButton[] buttons)
         {
-            if (windowsControl == null) { throw new ArgumentNullException("windowsControl"); }
+            if (windowsControl == null) { throw new ArgumentNullException(nameof(windowsControl)); }
             if (buttons != null && buttons.Length == 0)
             {
-                throw new ArgumentException(LocalizedMessages.ThumbnailToolbarManagerNullEmptyArray, "buttons");
+                throw new ArgumentException(LocalizedMessages.ThumbnailToolbarManagerNullEmptyArray, nameof(buttons));
             }
 
             _internalWindowHandle = IntPtr.Zero;

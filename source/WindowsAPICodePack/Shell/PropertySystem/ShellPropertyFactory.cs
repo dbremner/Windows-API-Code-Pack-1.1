@@ -154,7 +154,7 @@ namespace Microsoft.WindowsAPICodePack.Shell.PropertySystem
 
             if (ctorInfo == null)
             {
-                throw new ArgumentException(LocalizedMessages.ShellPropertyFactoryConstructorNotFound, "type");
+                throw new ArgumentException(LocalizedMessages.ShellPropertyFactoryConstructorNotFound, nameof(type));
             }
 
             var key = Expression.Parameter(argTypes[0], "propKey");

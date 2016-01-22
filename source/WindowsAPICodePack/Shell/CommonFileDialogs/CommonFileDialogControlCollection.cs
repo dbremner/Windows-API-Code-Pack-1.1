@@ -91,7 +91,7 @@ namespace Microsoft.WindowsAPICodePack.Dialogs.Controls
             {
                 if (string.IsNullOrEmpty(name))
                 {
-                    throw new ArgumentException(LocalizedMessages.DialogControlCollectionEmptyName, "name");
+                    throw new ArgumentException(LocalizedMessages.DialogControlCollectionEmptyName, nameof(name));
                 }
 
                 foreach (T control in base.Items)

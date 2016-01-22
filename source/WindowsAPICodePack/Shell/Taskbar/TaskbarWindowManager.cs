@@ -135,7 +135,7 @@ namespace Microsoft.WindowsAPICodePack.Taskbar
 
         internal static TaskbarWindow GetTaskbarWindow(System.Windows.UIElement windowsControl, TaskbarProxyWindowType taskbarProxyWindowType)
         {
-            if (windowsControl == null) { throw new ArgumentNullException("windowsControl"); }
+            if (windowsControl == null) { throw new ArgumentNullException(nameof(windowsControl)); }
 
             TaskbarWindow toReturn = _taskbarWindowList.FirstOrDefault(window =>
             {
@@ -163,7 +163,7 @@ namespace Microsoft.WindowsAPICodePack.Taskbar
         {
             if (userWindowHandle == IntPtr.Zero)
             {
-                throw new ArgumentException(LocalizedMessages.CommonFileDialogInvalidHandle, "userWindowHandle");
+                throw new ArgumentException(LocalizedMessages.CommonFileDialogInvalidHandle, nameof(userWindowHandle));
             }
 
             TaskbarWindow toReturn = _taskbarWindowList.FirstOrDefault(window => window.UserWindowHandle == userWindowHandle);

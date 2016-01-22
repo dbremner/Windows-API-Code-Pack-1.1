@@ -124,7 +124,7 @@ namespace Microsoft.WindowsAPICodePack.Controls.WindowsForms
         {
             if (shellObject == null)
             {
-                throw new ArgumentNullException("shellObject");
+                throw new ArgumentNullException(nameof(shellObject));
             }
 
             if (explorerBrowserControl == null)

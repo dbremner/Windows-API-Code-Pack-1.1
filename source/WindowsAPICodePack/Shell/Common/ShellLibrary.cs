@@ -79,11 +79,11 @@ namespace Microsoft.WindowsAPICodePack.Shell
             }
             catch (InvalidCastException)
             {
-                throw new ArgumentException(LocalizedMessages.ShellLibraryInvalidLibrary, "sourceKnownFolder");
+                throw new ArgumentException(LocalizedMessages.ShellLibraryInvalidLibrary, nameof(sourceKnownFolder));
             }
             catch (NotImplementedException)
             {
-                throw new ArgumentException(LocalizedMessages.ShellLibraryInvalidLibrary, "sourceKnownFolder");
+                throw new ArgumentException(LocalizedMessages.ShellLibraryInvalidLibrary, nameof(sourceKnownFolder));
             }
         }
 
@@ -102,7 +102,7 @@ namespace Microsoft.WindowsAPICodePack.Shell
         {
             if (string.IsNullOrEmpty(libraryName))
             {
-                throw new ArgumentException(LocalizedMessages.ShellLibraryEmptyName, "libraryName");
+                throw new ArgumentException(LocalizedMessages.ShellLibraryEmptyName, nameof(libraryName));
             }
 
             this.Name = libraryName;
@@ -128,7 +128,7 @@ namespace Microsoft.WindowsAPICodePack.Shell
         {
             if (string.IsNullOrEmpty(libraryName))
             {
-                throw new ArgumentException(LocalizedMessages.ShellLibraryEmptyName, "libraryName");
+                throw new ArgumentException(LocalizedMessages.ShellLibraryEmptyName, nameof(libraryName));
             }
 
             knownFolder = sourceKnownFolder;
@@ -156,7 +156,7 @@ namespace Microsoft.WindowsAPICodePack.Shell
         {
             if (string.IsNullOrEmpty(libraryName))
             {
-                throw new ArgumentException(LocalizedMessages.ShellLibraryEmptyName, "libraryName");
+                throw new ArgumentException(LocalizedMessages.ShellLibraryEmptyName, nameof(libraryName));
             }
 
             if (!Directory.Exists(folderPath))
@@ -266,7 +266,7 @@ namespace Microsoft.WindowsAPICodePack.Shell
                     return (LibraryFolderType)i;
                 }
             }
-            throw new ArgumentOutOfRangeException("folderTypeGuid", LocalizedMessages.ShellLibraryInvalidFolderType);
+            throw new ArgumentOutOfRangeException(nameof(folderTypeGuid), LocalizedMessages.ShellLibraryInvalidFolderType);
         }
 
         /// <summary>
@@ -295,7 +295,7 @@ namespace Microsoft.WindowsAPICodePack.Shell
             {
                 if (string.IsNullOrEmpty(value))
                 {
-                    throw new ArgumentNullException("value");
+                    throw new ArgumentNullException(nameof(value));
                 }
 
                 if (!Directory.Exists(value))
@@ -608,7 +608,7 @@ namespace Microsoft.WindowsAPICodePack.Shell
         /// <param name="item">The folder to add to the library.</param>
         public void Add(ShellFileSystemFolder item)
         {
-            if (item == null) { throw new ArgumentNullException("item"); }
+            if (item == null) { throw new ArgumentNullException(nameof(item)); }
 
             nativeShellLibrary.AddFolder(item.NativeShellItem);
             nativeShellLibrary.Commit();
@@ -649,7 +649,7 @@ namespace Microsoft.WindowsAPICodePack.Shell
         /// <returns><B>true</B> if the item was removed.</returns>
         public bool Remove(ShellFileSystemFolder item)
         {
-            if (item == null) { throw new ArgumentNullException("item"); }
+            if (item == null) { throw new ArgumentNullException(nameof(item)); }
 
             try
             {
@@ -781,7 +781,7 @@ namespace Microsoft.WindowsAPICodePack.Shell
         {
             if (string.IsNullOrEmpty(fullPath))
             {
-                throw new ArgumentNullException("fullPath");
+                throw new ArgumentNullException(nameof(fullPath));
             }
 
             return ItemsList.Any(folder => string.Equals(fullPath, folder.Path, StringComparison.OrdinalIgnoreCase));
@@ -796,7 +796,7 @@ namespace Microsoft.WindowsAPICodePack.Shell
         {
             if (item == null)
             {
-                throw new ArgumentNullException("item");
+                throw new ArgumentNullException(nameof(item));
             }
 
             return ItemsList.Any(folder => string.Equals(item.Path, folder.Path, StringComparison.OrdinalIgnoreCase));

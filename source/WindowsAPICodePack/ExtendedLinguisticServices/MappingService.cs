@@ -183,7 +183,7 @@ namespace Microsoft.WindowsAPICodePack.ExtendedLinguisticServices
         {
             if (text == null)
             {
-                throw new ArgumentNullException("text");
+                throw new ArgumentNullException(nameof(text));
             }
             return RecognizeText(text, text.Length, 0, options);
         }
@@ -207,15 +207,15 @@ namespace Microsoft.WindowsAPICodePack.ExtendedLinguisticServices
         {
             if (text == null)
             {
-                throw new ArgumentNullException("text");
+                throw new ArgumentNullException(nameof(text));
             }
             if (length > text.Length || length < 0)
             {
-                throw new ArgumentOutOfRangeException("length");
+                throw new ArgumentOutOfRangeException(nameof(length));
             }
             if (index < 0)
             {
-                throw new ArgumentOutOfRangeException("index");
+                throw new ArgumentOutOfRangeException(nameof(index));
             }
 
             MappingPropertyBag bag = new MappingPropertyBag(options, text);
@@ -286,7 +286,7 @@ namespace Microsoft.WindowsAPICodePack.ExtendedLinguisticServices
         {
             if (text == null)
             {
-                throw new ArgumentNullException("text");
+                throw new ArgumentNullException(nameof(text));
             }
             return BeginRecognizeText(text, text.Length, 0, options, asyncCallback, callerData);
         }
@@ -317,7 +317,7 @@ namespace Microsoft.WindowsAPICodePack.ExtendedLinguisticServices
         {
             if (asyncCallback == null)
             {
-                throw new ArgumentNullException("asyncCallback");
+                throw new ArgumentNullException(nameof(asyncCallback));
             }
             MappingRecognizeAsyncResult result = new MappingRecognizeAsyncResult(callerData, asyncCallback, text, length, index, options);
             try
@@ -357,7 +357,7 @@ namespace Microsoft.WindowsAPICodePack.ExtendedLinguisticServices
         /// This parameter cannot be set to null.</param>
         public static void DoAction(MappingPropertyBag bag, int rangeIndex, string actionId)
         {
-            if (bag == null) { throw new ArgumentNullException("bag"); }
+            if (bag == null) { throw new ArgumentNullException(nameof(bag)); }
 
             if (rangeIndex < 0)
             {

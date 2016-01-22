@@ -39,7 +39,7 @@ namespace Microsoft.WindowsAPICodePack.Shell
         {
             if (shellObject == null || shellObject.NativeShellItem == null)
             {
-                throw new ArgumentNullException("shellObject");
+                throw new ArgumentNullException(nameof(shellObject));
             }
 
             shellItemNative = shellObject.NativeShellItem;
@@ -64,7 +64,7 @@ namespace Microsoft.WindowsAPICodePack.Shell
                 // Check for 0; negative number check not required as System.Windows.Size only allows positive numbers.
                 if (value.Height == 0 || value.Width == 0)
                 {
-                    throw new System.ArgumentOutOfRangeException("value", LocalizedMessages.ShellThumbnailSizeCannotBe0);
+                    throw new System.ArgumentOutOfRangeException(nameof(value), LocalizedMessages.ShellThumbnailSizeCannotBe0);
                 }
 
                 System.Windows.Size size = (FormatOption == ShellThumbnailFormatOption.IconOnly) ?
@@ -72,7 +72,7 @@ namespace Microsoft.WindowsAPICodePack.Shell
 
                 if (value.Height > size.Height || value.Width > size.Width)
                 {
-                    throw new System.ArgumentOutOfRangeException("value",
+                    throw new System.ArgumentOutOfRangeException(nameof(value),
                         string.Format(System.Globalization.CultureInfo.InvariantCulture,
                         LocalizedMessages.ShellThumbnailCurrentSizeRange, size.ToString()));
                 }

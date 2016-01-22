@@ -248,7 +248,7 @@ namespace MS.WindowsAPICodePack.Internal
         {
             if (value == null)
             {
-                throw new ArgumentException(LocalizedMessages.PropVariantNullString, "value");
+                throw new ArgumentException(LocalizedMessages.PropVariantNullString, nameof(value));
             }
 
             _valueType = (ushort)VarEnum.VT_LPWSTR;
@@ -260,7 +260,7 @@ namespace MS.WindowsAPICodePack.Internal
         /// </summary>
         public PropVariant(string[] value)
         {
-            if (value == null) { throw new ArgumentNullException("value"); }
+            if (value == null) { throw new ArgumentNullException(nameof(value)); }
 
             PropVariantNativeMethods.InitPropVariantFromStringVector(value, (uint)value.Length, this);
         }
@@ -270,7 +270,7 @@ namespace MS.WindowsAPICodePack.Internal
         /// </summary>
         public PropVariant(bool[] value)
         {
-            if (value == null) { throw new ArgumentNullException("value"); }
+            if (value == null) { throw new ArgumentNullException(nameof(value)); }
 
             PropVariantNativeMethods.InitPropVariantFromBooleanVector(value, (uint)value.Length, this);
         }
@@ -280,7 +280,7 @@ namespace MS.WindowsAPICodePack.Internal
         /// </summary>
         public PropVariant(short[] value)
         {
-            if (value == null) { throw new ArgumentNullException("value"); }
+            if (value == null) { throw new ArgumentNullException(nameof(value)); }
 
             PropVariantNativeMethods.InitPropVariantFromInt16Vector(value, (uint)value.Length, this);
         }
@@ -290,7 +290,7 @@ namespace MS.WindowsAPICodePack.Internal
         /// </summary>
         public PropVariant(ushort[] value)
         {
-            if (value == null) { throw new ArgumentNullException("value"); }
+            if (value == null) { throw new ArgumentNullException(nameof(value)); }
 
             PropVariantNativeMethods.InitPropVariantFromUInt16Vector(value, (uint)value.Length, this);
 
@@ -301,7 +301,7 @@ namespace MS.WindowsAPICodePack.Internal
         /// </summary>
         public PropVariant(int[] value)
         {
-            if (value == null) { throw new ArgumentNullException("value"); }
+            if (value == null) { throw new ArgumentNullException(nameof(value)); }
 
             PropVariantNativeMethods.InitPropVariantFromInt32Vector(value, (uint)value.Length, this);
         }
@@ -311,7 +311,7 @@ namespace MS.WindowsAPICodePack.Internal
         /// </summary>
         public PropVariant(uint[] value)
         {
-            if (value == null) { throw new ArgumentNullException("value"); }
+            if (value == null) { throw new ArgumentNullException(nameof(value)); }
 
             PropVariantNativeMethods.InitPropVariantFromUInt32Vector(value, (uint)value.Length, this);
         }
@@ -321,7 +321,7 @@ namespace MS.WindowsAPICodePack.Internal
         /// </summary>
         public PropVariant(long[] value)
         {
-            if (value == null) { throw new ArgumentNullException("value"); }
+            if (value == null) { throw new ArgumentNullException(nameof(value)); }
 
             PropVariantNativeMethods.InitPropVariantFromInt64Vector(value, (uint)value.Length, this);
         }
@@ -331,7 +331,7 @@ namespace MS.WindowsAPICodePack.Internal
         /// </summary>
         public PropVariant(ulong[] value)
         {
-            if (value == null) { throw new ArgumentNullException("value"); }
+            if (value == null) { throw new ArgumentNullException(nameof(value)); }
 
             PropVariantNativeMethods.InitPropVariantFromUInt64Vector(value, (uint)value.Length, this);
         }
@@ -341,7 +341,7 @@ namespace MS.WindowsAPICodePack.Internal
         /// </summary>
         public PropVariant(double[] value)
         {
-            if (value == null) { throw new ArgumentNullException("value"); }
+            if (value == null) { throw new ArgumentNullException(nameof(value)); }
 
             PropVariantNativeMethods.InitPropVariantFromDoubleVector(value, (uint)value.Length, this);
         }
@@ -352,7 +352,7 @@ namespace MS.WindowsAPICodePack.Internal
         /// </summary>
         public PropVariant(DateTime[] value)
         {
-            if (value == null) { throw new ArgumentNullException("value"); }
+            if (value == null) { throw new ArgumentNullException(nameof(value)); }
             System.Runtime.InteropServices.ComTypes.FILETIME[] fileTimeArr =
                 new System.Runtime.InteropServices.ComTypes.FILETIME[value.Length];
 
@@ -457,7 +457,7 @@ namespace MS.WindowsAPICodePack.Internal
         /// <param name="value">Decimal array to wrap.</param>
         public PropVariant(decimal[] value)
         {
-            if (value == null) { throw new ArgumentNullException("value"); }
+            if (value == null) { throw new ArgumentNullException(nameof(value)); }
 
             _valueType = (ushort)(VarEnum.VT_DECIMAL | VarEnum.VT_VECTOR);
             _int32 = value.Length;
@@ -486,7 +486,7 @@ namespace MS.WindowsAPICodePack.Internal
         /// </summary>        
         public PropVariant(float[] value)
         {
-            if (value == null) { throw new ArgumentNullException("value"); }
+            if (value == null) { throw new ArgumentNullException(nameof(value)); }
 
             _valueType = (ushort)(VarEnum.VT_R4 | VarEnum.VT_VECTOR);
             _int32 = value.Length;
@@ -544,7 +544,7 @@ namespace MS.WindowsAPICodePack.Internal
         /// <param name="array">The new value to set.</param>
         internal void SetSafeArray(Array array)
         {
-            if (array == null) { throw new ArgumentNullException("array"); }
+            if (array == null) { throw new ArgumentNullException(nameof(array)); }
             const ushort vtUnknown = 13;
             IntPtr psa = PropVariantNativeMethods.SafeArrayCreateVector(vtUnknown, 0, (uint)array.Length);
 
@@ -741,7 +741,7 @@ namespace MS.WindowsAPICodePack.Internal
         {
             uint cDims = PropVariantNativeMethods.SafeArrayGetDim(psa);
             if (cDims != 1)
-                throw new ArgumentException(LocalizedMessages.PropVariantMultiDimArray, "psa");
+                throw new ArgumentException(LocalizedMessages.PropVariantMultiDimArray, nameof(psa));
 
             int lBound = PropVariantNativeMethods.SafeArrayGetLBound(psa, 1U);
             int uBound = PropVariantNativeMethods.SafeArrayGetUBound(psa, 1U);

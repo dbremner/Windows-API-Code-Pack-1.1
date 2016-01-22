@@ -45,14 +45,14 @@ namespace Microsoft.WindowsAPICodePack.Taskbar
         /// <exception cref="System.ArgumentException">If the tabbed thumbnail has already been added</exception>
         public void AddThumbnailPreview(TabbedThumbnail preview)
         {
-            if (preview == null) { throw new ArgumentNullException("preview"); }
+            if (preview == null) { throw new ArgumentNullException(nameof(preview)); }
 
             // UI Element has a windowHandle of zero.
             if (preview.WindowHandle == IntPtr.Zero)
             {
                 if (_tabbedThumbnailCacheWPF.ContainsKey(preview.WindowsControl))
                 {
-                    throw new ArgumentException(LocalizedMessages.ThumbnailManagerPreviewAdded, "preview");
+                    throw new ArgumentException(LocalizedMessages.ThumbnailManagerPreviewAdded, nameof(preview));
                 }
                 _tabbedThumbnailCacheWPF.Add(preview.WindowsControl, preview);
             }
@@ -61,7 +61,7 @@ namespace Microsoft.WindowsAPICodePack.Taskbar
                 // Regular control with a valid handle
                 if (_tabbedThumbnailCache.ContainsKey(preview.WindowHandle))
                 {
-                    throw new ArgumentException(LocalizedMessages.ThumbnailManagerPreviewAdded, "preview");
+                    throw new ArgumentException(LocalizedMessages.ThumbnailManagerPreviewAdded, nameof(preview));
                 }
                 _tabbedThumbnailCache.Add(preview.WindowHandle, preview);
             }
@@ -80,7 +80,7 @@ namespace Microsoft.WindowsAPICodePack.Taskbar
         {
             if (windowHandle == IntPtr.Zero)
             {
-                throw new ArgumentException(LocalizedMessages.ThumbnailManagerInvalidHandle, "windowHandle");
+                throw new ArgumentException(LocalizedMessages.ThumbnailManagerInvalidHandle, nameof(windowHandle));
             }
 
             TabbedThumbnail thumbnail;
@@ -96,7 +96,7 @@ namespace Microsoft.WindowsAPICodePack.Taskbar
         {
             if (control == null)
             {
-                throw new ArgumentNullException("control");
+                throw new ArgumentNullException(nameof(control));
             }
 
             return GetThumbnailPreview(control.Handle);
@@ -111,7 +111,7 @@ namespace Microsoft.WindowsAPICodePack.Taskbar
         {
             if (windowsControl == null)
             {
-                throw new ArgumentNullException("windowsControl");
+                throw new ArgumentNullException(nameof(windowsControl));
             }
 
             TabbedThumbnail thumbnail;
@@ -127,7 +127,7 @@ namespace Microsoft.WindowsAPICodePack.Taskbar
         {
             if (preview == null)
             {
-                throw new ArgumentNullException("preview");
+                throw new ArgumentNullException(nameof(preview));
             }
 
             if (_tabbedThumbnailCache.ContainsKey(preview.WindowHandle))
@@ -149,7 +149,7 @@ namespace Microsoft.WindowsAPICodePack.Taskbar
         {
             if (!_tabbedThumbnailCache.ContainsKey(windowHandle))
             {
-                throw new ArgumentException(LocalizedMessages.ThumbnailManagerControlNotAdded, "windowHandle");
+                throw new ArgumentException(LocalizedMessages.ThumbnailManagerControlNotAdded, nameof(windowHandle));
             }
 
             TaskbarWindowManager.UnregisterTab(_tabbedThumbnailCache[windowHandle].TaskbarWindow);
@@ -176,7 +176,7 @@ namespace Microsoft.WindowsAPICodePack.Taskbar
         {
             if (control == null)
             {
-                throw new ArgumentNullException("control");
+                throw new ArgumentNullException(nameof(control));
             }
 
             IntPtr handle = control.Handle;
@@ -191,11 +191,11 @@ namespace Microsoft.WindowsAPICodePack.Taskbar
         /// is to be removed from the taskbar</param>
         public void RemoveThumbnailPreview(UIElement windowsControl)
         {
-            if (windowsControl == null) { throw new ArgumentNullException("windowsControl"); }
+            if (windowsControl == null) { throw new ArgumentNullException(nameof(windowsControl)); }
 
             if (!_tabbedThumbnailCacheWPF.ContainsKey(windowsControl))
             {
-                throw new ArgumentException(LocalizedMessages.ThumbnailManagerControlNotAdded, "windowsControl");
+                throw new ArgumentException(LocalizedMessages.ThumbnailManagerControlNotAdded, nameof(windowsControl));
             }
 
             TaskbarWindowManager.UnregisterTab(_tabbedThumbnailCacheWPF[windowsControl].TaskbarWindow);
@@ -224,13 +224,13 @@ namespace Microsoft.WindowsAPICodePack.Taskbar
         /// <exception cref="System.ArgumentException">If the control/window is not yet added to the tabbed thumbnails list</exception>
         public void SetActiveTab(TabbedThumbnail preview)
         {
-            if (preview == null) { throw new ArgumentNullException("preview"); }
+            if (preview == null) { throw new ArgumentNullException(nameof(preview)); }
 
             if (preview.WindowHandle != IntPtr.Zero)
             {
                 if (!_tabbedThumbnailCache.ContainsKey(preview.WindowHandle))
                 {
-                    throw new ArgumentException(LocalizedMessages.ThumbnailManagerPreviewNotAdded, "preview");
+                    throw new ArgumentException(LocalizedMessages.ThumbnailManagerPreviewNotAdded, nameof(preview));
                 }
                 TaskbarWindowManager.SetActiveTab(_tabbedThumbnailCache[preview.WindowHandle].TaskbarWindow);
             }
@@ -238,7 +238,7 @@ namespace Microsoft.WindowsAPICodePack.Taskbar
             {
                 if (!_tabbedThumbnailCacheWPF.ContainsKey(preview.WindowsControl))
                 {
-                    throw new ArgumentException(LocalizedMessages.ThumbnailManagerPreviewNotAdded, "preview");
+                    throw new ArgumentException(LocalizedMessages.ThumbnailManagerPreviewNotAdded, nameof(preview));
                 }
                 TaskbarWindowManager.SetActiveTab(_tabbedThumbnailCacheWPF[preview.WindowsControl].TaskbarWindow);
             }
@@ -255,7 +255,7 @@ namespace Microsoft.WindowsAPICodePack.Taskbar
         {
             if (!_tabbedThumbnailCache.ContainsKey(windowHandle))
             {
-                throw new ArgumentException(LocalizedMessages.ThumbnailManagerPreviewNotAdded, "windowHandle");
+                throw new ArgumentException(LocalizedMessages.ThumbnailManagerPreviewNotAdded, nameof(windowHandle));
             }
             TaskbarWindowManager.SetActiveTab(_tabbedThumbnailCache[windowHandle].TaskbarWindow);
         }
@@ -271,7 +271,7 @@ namespace Microsoft.WindowsAPICodePack.Taskbar
         {
             if (control == null)
             {
-                throw new ArgumentNullException("control");
+                throw new ArgumentNullException(nameof(control));
             }
             SetActiveTab(control.Handle);
         }
@@ -287,12 +287,12 @@ namespace Microsoft.WindowsAPICodePack.Taskbar
         {
             if (windowsControl == null)
             {
-                throw new ArgumentNullException("windowsControl");
+                throw new ArgumentNullException(nameof(windowsControl));
             }
 
             if (!_tabbedThumbnailCacheWPF.ContainsKey(windowsControl))
             {
-                throw new ArgumentException(LocalizedMessages.ThumbnailManagerPreviewNotAdded, "windowsControl");
+                throw new ArgumentException(LocalizedMessages.ThumbnailManagerPreviewNotAdded, nameof(windowsControl));
             }
             TaskbarWindowManager.SetActiveTab(_tabbedThumbnailCacheWPF[windowsControl].TaskbarWindow);
 
@@ -307,7 +307,7 @@ namespace Microsoft.WindowsAPICodePack.Taskbar
         {
             if (preview == null)
             {
-                throw new ArgumentNullException("preview");
+                throw new ArgumentNullException(nameof(preview));
             }
 
             if (preview.WindowHandle != IntPtr.Zero && _tabbedThumbnailCache.ContainsKey(preview.WindowHandle))
@@ -331,7 +331,7 @@ namespace Microsoft.WindowsAPICodePack.Taskbar
         {
             if (windowHandle == IntPtr.Zero)
             {
-                throw new ArgumentException(LocalizedMessages.ThumbnailManagerInvalidHandle, "windowHandle");
+                throw new ArgumentException(LocalizedMessages.ThumbnailManagerInvalidHandle, nameof(windowHandle));
             }
 
             return _tabbedThumbnailCache.ContainsKey(windowHandle);            
@@ -346,7 +346,7 @@ namespace Microsoft.WindowsAPICodePack.Taskbar
         {
             if (control == null)
             {
-                throw new ArgumentNullException("control");
+                throw new ArgumentNullException(nameof(control));
             }
 
             return _tabbedThumbnailCache.ContainsKey(control.Handle);
@@ -361,7 +361,7 @@ namespace Microsoft.WindowsAPICodePack.Taskbar
         {
             if (control == null)
             {
-                throw new ArgumentNullException("control");
+                throw new ArgumentNullException(nameof(control));
             }
 
             return _tabbedThumbnailCacheWPF.ContainsKey(control);
@@ -445,7 +445,7 @@ namespace Microsoft.WindowsAPICodePack.Taskbar
         {
             if (previewToChange == null)
             {
-                throw new ArgumentNullException("previewToChange");
+                throw new ArgumentNullException(nameof(previewToChange));
             }
 
             IntPtr handleToReorder = previewToChange.TaskbarWindow.WindowToTellTaskbarAbout;

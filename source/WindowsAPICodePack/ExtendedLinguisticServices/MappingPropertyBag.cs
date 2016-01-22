@@ -70,7 +70,7 @@ namespace Microsoft.WindowsAPICodePack.ExtendedLinguisticServices
         /// <returns></returns>
         public T[] FormatData<T>(IMappingFormatter<T> formatter)
         {
-            if (formatter == null) { throw new ArgumentNullException("formatter"); }
+            if (formatter == null) { throw new ArgumentNullException(nameof(formatter)); }
             return formatter.FormatAll(this);
         }
 

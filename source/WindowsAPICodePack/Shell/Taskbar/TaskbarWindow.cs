@@ -95,12 +95,12 @@ namespace Microsoft.WindowsAPICodePack.Taskbar
         {
             if (userWindowHandle == IntPtr.Zero)
             {
-                throw new ArgumentException(LocalizedMessages.CommonFileDialogInvalidHandle, "userWindowHandle");
+                throw new ArgumentException(LocalizedMessages.CommonFileDialogInvalidHandle, nameof(userWindowHandle));
             }
 
             if (buttons == null || buttons.Length == 0)
             {
-                throw new ArgumentException(LocalizedMessages.TaskbarWindowEmptyButtonArray, "buttons");
+                throw new ArgumentException(LocalizedMessages.TaskbarWindowEmptyButtonArray, nameof(buttons));
             }
 
             // Create our proxy window
@@ -121,12 +121,12 @@ namespace Microsoft.WindowsAPICodePack.Taskbar
         {
             if (windowsControl == null)
             {
-                throw new ArgumentNullException("windowsControl");
+                throw new ArgumentNullException(nameof(windowsControl));
             }
 
             if (buttons == null || buttons.Length == 0)
             {
-                throw new ArgumentException(LocalizedMessages.TaskbarWindowEmptyButtonArray, "buttons");
+                throw new ArgumentException(LocalizedMessages.TaskbarWindowEmptyButtonArray, nameof(buttons));
             }
 
             // Create our proxy window
@@ -144,7 +144,7 @@ namespace Microsoft.WindowsAPICodePack.Taskbar
 
         internal TaskbarWindow(TabbedThumbnail preview)
         {
-            if (preview == null) { throw new ArgumentNullException("preview"); }
+            if (preview == null) { throw new ArgumentNullException(nameof(preview)); }
 
             // Create our proxy window
             // Bug: This is only called in this constructor.  Which will cause the property 

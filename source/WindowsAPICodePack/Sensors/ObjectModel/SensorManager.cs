@@ -164,7 +164,7 @@ namespace Microsoft.WindowsAPICodePack.Sensors
         {
             if (sensors == null || sensors.Count == 0)
             {
-                throw new ArgumentException(LocalizedMessages.SensorManagerEmptySensorsCollection, "sensors");
+                throw new ArgumentException(LocalizedMessages.SensorManagerEmptySensorsCollection, nameof(sensors));
             }
 
             ISensorCollection sensorCollection = new SensorCollection();

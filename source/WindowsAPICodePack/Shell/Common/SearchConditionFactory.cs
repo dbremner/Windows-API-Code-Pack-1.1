@@ -183,7 +183,7 @@ namespace Microsoft.WindowsAPICodePack.Shell
 
             if (string.IsNullOrEmpty(canonicalName))
             {
-                throw new ArgumentException(LocalizedMessages.SearchConditionFactoryInvalidProperty, "propertyKey");
+                throw new ArgumentException(LocalizedMessages.SearchConditionFactoryInvalidProperty, nameof(propertyKey));
             }
 
             return CreateLeafCondition(canonicalName, value, operation);
@@ -209,7 +209,7 @@ namespace Microsoft.WindowsAPICodePack.Shell
 
             if (string.IsNullOrEmpty(canonicalName))
             {
-                throw new ArgumentException(LocalizedMessages.SearchConditionFactoryInvalidProperty, "propertyKey");
+                throw new ArgumentException(LocalizedMessages.SearchConditionFactoryInvalidProperty, nameof(propertyKey));
             }
             return CreateLeafCondition(canonicalName, value, operation);
         }
@@ -234,7 +234,7 @@ namespace Microsoft.WindowsAPICodePack.Shell
 
             if (string.IsNullOrEmpty(canonicalName))
             {
-                throw new ArgumentException(LocalizedMessages.SearchConditionFactoryInvalidProperty, "propertyKey");
+                throw new ArgumentException(LocalizedMessages.SearchConditionFactoryInvalidProperty, nameof(propertyKey));
             }
             return CreateLeafCondition(canonicalName, value, operation);
         }
@@ -259,7 +259,7 @@ namespace Microsoft.WindowsAPICodePack.Shell
 
             if (string.IsNullOrEmpty(canonicalName))
             {
-                throw new ArgumentException(LocalizedMessages.SearchConditionFactoryInvalidProperty, "propertyKey");
+                throw new ArgumentException(LocalizedMessages.SearchConditionFactoryInvalidProperty, nameof(propertyKey));
             }
             return CreateLeafCondition(canonicalName, value, operation);
         }
@@ -284,7 +284,7 @@ namespace Microsoft.WindowsAPICodePack.Shell
 
             if (string.IsNullOrEmpty(canonicalName))
             {
-                throw new ArgumentException(LocalizedMessages.SearchConditionFactoryInvalidProperty, "propertyKey");
+                throw new ArgumentException(LocalizedMessages.SearchConditionFactoryInvalidProperty, nameof(propertyKey));
             }
             return CreateLeafCondition(canonicalName, value, operation);
         }
@@ -348,7 +348,7 @@ namespace Microsoft.WindowsAPICodePack.Shell
         {
             if (conditionToBeNegated == null)
             {
-                throw new ArgumentNullException("conditionToBeNegated");
+                throw new ArgumentNullException(nameof(conditionToBeNegated));
             }
 
             // Same as the native "IConditionFactory:MakeNot" method
@@ -398,7 +398,7 @@ namespace Microsoft.WindowsAPICodePack.Shell
         {
             if (string.IsNullOrEmpty(query))
             {
-                throw new ArgumentNullException("query");
+                throw new ArgumentNullException(nameof(query));
             }
 
             IQueryParserManager nativeQueryParserManager = (IQueryParserManager)new QueryParserManagerCoClass();

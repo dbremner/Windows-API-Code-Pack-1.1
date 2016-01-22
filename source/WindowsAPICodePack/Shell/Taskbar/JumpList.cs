@@ -181,7 +181,7 @@ namespace Microsoft.WindowsAPICodePack.Taskbar
             {
                 if (value < 0)
                 {
-                    throw new ArgumentOutOfRangeException("value", LocalizedMessages.JumpListNegativeOrdinalPosition);
+                    throw new ArgumentOutOfRangeException(nameof(value), LocalizedMessages.JumpListNegativeOrdinalPosition);
                 }
 
                 knownCategoryOrdinalPosition = value;

@@ -41,7 +41,7 @@ namespace Microsoft.WindowsAPICodePack.Shell
             string folder;
             if (!folders.TryGetValue(folderId, out folder))
             {
-                throw new ArgumentException(LocalizedMessages.FolderIdsUnknownGuid, "folderId");
+                throw new ArgumentException(LocalizedMessages.FolderIdsUnknownGuid, nameof(folderId));
             }
             return folder;
         }

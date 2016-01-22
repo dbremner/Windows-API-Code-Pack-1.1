@@ -130,7 +130,7 @@ namespace Microsoft.WindowsAPICodePack.Controls
         {
             if (parent == null)
             {
-                throw new ArgumentException(LocalizedMessages.NavigationLogNullParent, "parent");
+                throw new ArgumentException(LocalizedMessages.NavigationLogNullParent, nameof(parent));
             }
 
             // Hook navigation events from the parent to distinguish between
