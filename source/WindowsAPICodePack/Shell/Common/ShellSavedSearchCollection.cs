@@ -12,7 +12,6 @@ namespace Microsoft.WindowsAPICodePack.Shell
         internal ShellSavedSearchCollection(IShellItem2 shellItem)
             : base(shellItem)
         {
-            CoreHelpers.ThrowIfNotVista();
         }
     }
 }

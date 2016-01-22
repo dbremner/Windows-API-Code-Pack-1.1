@@ -30,18 +30,6 @@ namespace Microsoft.WindowsAPICodePack.Shell
             return ShellObjectFactory.Create(parsingName);
         }
 
-        /// <summary>
-        /// Indicates whether this feature is supported on the current platform.
-        /// </summary>
-        public static bool IsPlatformSupported
-        {
-            get
-            {
-                // We need Windows Vista onwards ...
-                return CoreHelpers.RunningOnVista;
-            }
-        }
-
         #endregion
 
         #region Internal Fields

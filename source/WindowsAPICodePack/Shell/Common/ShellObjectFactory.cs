@@ -22,12 +22,6 @@ namespace Microsoft.WindowsAPICodePack.Shell
             // Sanity check
             Debug.Assert(nativeShellItem != null, "nativeShellItem should not be null");
 
-            // Need to make sure we're running on Vista or higher
-            if (!CoreHelpers.RunningOnVista)
-            {
-                throw new PlatformNotSupportedException(LocalizedMessages.ShellObjectFactoryPlatformNotSupported);
-            }
-
             // A lot of APIs need IShellItem2, so just keep a copy of it here
             IShellItem2 nativeShellItem2 = nativeShellItem as IShellItem2;
 
@@ -185,9 +179,6 @@ namespace Microsoft.WindowsAPICodePack.Shell
         /// <returns></returns>
         internal static ShellObject Create(IntPtr idListPtr)
         {
-            // Throw exception if not running on Win7 or newer.
-            CoreHelpers.ThrowIfNotVista();
-
             Guid guid = new Guid(ShellIIDGuid.IShellItem2);
 
             IShellItem2 nativeShellItem;

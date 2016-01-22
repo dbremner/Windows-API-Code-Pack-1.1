@@ -13,28 +13,6 @@ namespace MS.WindowsAPICodePack.Internal
     public static class CoreHelpers
     {
         /// <summary>
-        /// Determines if the application is running on Vista
-        /// </summary>
-        public static bool RunningOnVista
-        {
-            get
-            {
-                return Environment.OSVersion.Version.Major >= 6;
-            }
-        }
-
-        /// <summary>
-        /// Throws PlatformNotSupportedException if the application is not running on Windows Vista
-        /// </summary>
-        public static void ThrowIfNotVista()
-        {
-            if (!CoreHelpers.RunningOnVista)
-            {
-                throw new PlatformNotSupportedException(LocalizedMessages.CoreHelpersRunningOnVista);
-            }
-        }
-
-        /// <summary>
         /// Determines if the application is running on Windows 7
         /// </summary>
         public static bool RunningOnWin7

@@ -39,8 +39,6 @@ namespace Microsoft.WindowsAPICodePack.Controls.WindowsForms
         /// </summary>
         public CommandLink()
         {
-            CoreHelpers.ThrowIfNotVista();
-
             FlatStyle = FlatStyle.System;
         }
 
@@ -95,10 +93,7 @@ namespace Microsoft.WindowsAPICodePack.Controls.WindowsForms
         {
             // Only add BS_COMMANDLINK style on Windows Vista or above.
             // Otherwise, button creation will fail.
-            if (CoreHelpers.RunningOnVista)
-            {
-                style |= ShellNativeMethods.CommandLink;
-            }
+            style |= ShellNativeMethods.CommandLink;
 
             return style;
         }
@@ -135,17 +130,5 @@ namespace Microsoft.WindowsAPICodePack.Controls.WindowsForms
         }
 
         #endregion
-
-        /// <summary>
-        /// Indicates whether this feature is supported on the current platform.
-        /// </summary>
-        public static bool IsPlatformSupported
-        {
-            get
-            {
-                // We need Windows Vista onwards ...
-                return CoreHelpers.RunningOnVista;
-            }
-        }
     }
 }

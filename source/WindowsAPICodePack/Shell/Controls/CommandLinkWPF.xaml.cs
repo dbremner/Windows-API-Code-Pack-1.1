@@ -19,9 +19,6 @@ namespace Microsoft.WindowsAPICodePack.Controls.WindowsPresentationFoundation
         /// </summary>
         public CommandLink()
         {
-            // Throw PlatformNotSupportedException if the user is not running Vista or beyond
-            CoreHelpers.ThrowIfNotVista();
-
             this.DataContext = this;
             InitializeComponent();
             this.button.Click += new RoutedEventHandler(button_Click);
@@ -117,16 +114,5 @@ namespace Microsoft.WindowsAPICodePack.Controls.WindowsPresentationFoundation
         public event PropertyChangedEventHandler PropertyChanged;
 
         #endregion
-
-        /// <summary>
-        /// Indicates whether this feature is supported on the current platform.
-        /// </summary>
-        public static bool IsPlatformSupported
-        {
-            get
-            {                
-                return CoreHelpers.RunningOnVista;
-            }
-        }
     }
 }

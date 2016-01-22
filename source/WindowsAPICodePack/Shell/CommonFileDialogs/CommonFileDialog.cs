@@ -56,11 +56,6 @@ namespace Microsoft.WindowsAPICodePack.Dialogs
         /// </summary>
         protected CommonFileDialog()
         {
-            if (!CoreHelpers.RunningOnVista)
-            {
-                throw new PlatformNotSupportedException(LocalizedMessages.CommonFileDialogRequiresVista);
-            }
-
             filenames = new Collection<string>();
             filters = new CommonFileDialogFilterCollection();
             items = new Collection<IShellItem>();
@@ -1327,18 +1322,6 @@ namespace Microsoft.WindowsAPICodePack.Dialogs
         }
 
         #endregion
-
-        /// <summary>
-        /// Indicates whether this feature is supported on the current platform.
-        /// </summary>
-        public static bool IsPlatformSupported
-        {
-            get
-            {
-                // We need Windows Vista onwards ...
-                return CoreHelpers.RunningOnVista;
-            }
-        }
     }
 
 

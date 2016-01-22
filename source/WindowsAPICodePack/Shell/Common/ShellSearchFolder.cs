@@ -23,8 +23,6 @@ namespace Microsoft.WindowsAPICodePack.Shell
         /// <param name="searchScopePath">List of folders/paths to perform the search on. These locations need to be indexed by the system.</param>
         public ShellSearchFolder(SearchCondition searchCondition, params ShellContainer[] searchScopePath)
         {
-            CoreHelpers.ThrowIfNotVista();
-
             NativeSearchFolderItemFactory = (ISearchFolderItemFactory)new SearchFolderItemFactoryCoClass();
 
             this.SearchCondition = searchCondition;
@@ -43,8 +41,6 @@ namespace Microsoft.WindowsAPICodePack.Shell
         /// <param name="searchScopePath">List of folders/paths to perform the search on. These locations need to be indexed by the system.</param>
         public ShellSearchFolder(SearchCondition searchCondition, params string[] searchScopePath)
         {
-            CoreHelpers.ThrowIfNotVista();
-
             NativeSearchFolderItemFactory = (ISearchFolderItemFactory)new SearchFolderItemFactoryCoClass();
 
             if (searchScopePath != null && searchScopePath.Length > 0 && searchScopePath[0] != null)

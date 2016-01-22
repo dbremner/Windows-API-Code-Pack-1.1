@@ -358,8 +358,6 @@ namespace Microsoft.WindowsAPICodePack.Dialogs
         /// </summary>
         public TaskDialog()
         {
-            CoreHelpers.ThrowIfNotVista();
-
             // Initialize various data structs.
             controls = new DialogControlCollection<TaskDialogControl>(this);
         }
@@ -433,8 +431,6 @@ namespace Microsoft.WindowsAPICodePack.Dialogs
             string instructionText,
             string caption)
         {
-            CoreHelpers.ThrowIfNotVista();
-
             // If no instance cached yet, create it.
             if (staticDialog == null)
             {
@@ -1233,17 +1229,5 @@ namespace Microsoft.WindowsAPICodePack.Dialogs
         }
 
         #endregion
-
-        /// <summary>
-        /// Indicates whether this feature is supported on the current platform.
-        /// </summary>
-        public static bool IsPlatformSupported
-        {
-            get
-            {
-                // We need Windows Vista onwards ...
-                return CoreHelpers.RunningOnVista;
-            }
-        }
     }
 }

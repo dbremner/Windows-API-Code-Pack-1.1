@@ -27,7 +27,6 @@ namespace Microsoft.WindowsAPICodePack.ApplicationServices
         /// Raised each time the active power scheme changes.
         /// </summary>
         /// <exception cref="InvalidOperationException">The event handler specified for removal was not registered.</exception>
-        /// <exception cref="System.PlatformNotSupportedException">Requires Vista/Windows Server 2008.</exception>
         public static event EventHandler PowerPersonalityChanged
         {
             add
@@ -40,8 +39,6 @@ namespace Microsoft.WindowsAPICodePack.ApplicationServices
 
             remove
             {
-                CoreHelpers.ThrowIfNotVista();
-
                 MessageManager.UnregisterPowerEvent(
                     EventManager.PowerPersonalityChange, value);
             }
@@ -51,21 +48,16 @@ namespace Microsoft.WindowsAPICodePack.ApplicationServices
         /// Raised when the power source changes.
         /// </summary>
         /// <exception cref="InvalidOperationException">The event handler specified for removal was not registered.</exception>
-        /// <exception cref="System.PlatformNotSupportedException">Requires Vista/Windows Server 2008.</exception>
         public static event EventHandler PowerSourceChanged
         {
             add
             {
-                CoreHelpers.ThrowIfNotVista();
-
                 MessageManager.RegisterPowerEvent(
                     EventManager.PowerSourceChange, value);
             }
 
             remove
             {
-                CoreHelpers.ThrowIfNotVista();
-
                 MessageManager.UnregisterPowerEvent(
                     EventManager.PowerSourceChange, value);
             }
@@ -75,20 +67,15 @@ namespace Microsoft.WindowsAPICodePack.ApplicationServices
         /// Raised when the remaining battery life changes.
         /// </summary>
         /// <exception cref="InvalidOperationException">The event handler specified for removal was not registered.</exception>
-        /// <exception cref="System.PlatformNotSupportedException">Requires Vista/Windows Server 2008.</exception>
         public static event EventHandler BatteryLifePercentChanged
         {
             add
             {
-                CoreHelpers.ThrowIfNotVista();
-
                 MessageManager.RegisterPowerEvent(
                     EventManager.BatteryCapacityChange, value);
             }
             remove
             {
-                CoreHelpers.ThrowIfNotVista();
-
                 MessageManager.UnregisterPowerEvent(
                     EventManager.BatteryCapacityChange, value);
             }
@@ -98,20 +85,15 @@ namespace Microsoft.WindowsAPICodePack.ApplicationServices
         /// Raised when the monitor status changes.
         /// </summary>
         /// <exception cref="InvalidOperationException">The event handler specified for removal was not registered.</exception>
-        /// <exception cref="System.PlatformNotSupportedException">Requires Vista/Windows Server 2008.</exception>
         public static event EventHandler IsMonitorOnChanged
         {
             add
             {
-                CoreHelpers.ThrowIfNotVista();
-
                 MessageManager.RegisterPowerEvent(
                     EventManager.MonitorPowerStatus, value);
             }
             remove
             {
-                CoreHelpers.ThrowIfNotVista();
-
                 MessageManager.UnregisterPowerEvent(
                     EventManager.MonitorPowerStatus, value);
             }
@@ -124,20 +106,15 @@ namespace Microsoft.WindowsAPICodePack.ApplicationServices
         /// would otherwise prevent the computer from entering an idle state. 
         /// </summary>
         /// <exception cref="InvalidOperationException">The event handler specified for removal was not registered.</exception>
-        /// <exception cref="System.PlatformNotSupportedException">Requires Vista/Windows Server 2008.</exception>
         public static event EventHandler SystemBusyChanged
         {
             add
             {
-                CoreHelpers.ThrowIfNotVista();
-
                 MessageManager.RegisterPowerEvent(
                     EventManager.BackgroundTaskNotification, value);
             }
             remove
             {
-                CoreHelpers.ThrowIfNotVista();
-
                 MessageManager.UnregisterPowerEvent(
                     EventManager.BackgroundTaskNotification, value);
             }
@@ -262,7 +239,6 @@ namespace Microsoft.WindowsAPICodePack.ApplicationServices
         /// <summary>
         /// Gets a value that indicates the current power scheme.  
         /// </summary>
-        /// <exception cref="System.PlatformNotSupportedException">Requires Vista/Windows Server 2008.</exception>
         /// <value>A <see cref="PowerPersonality"/> value.</value>
         public static PowerPersonality PowerPersonality
         {
@@ -291,7 +267,6 @@ namespace Microsoft.WindowsAPICodePack.ApplicationServices
         /// where 0 is not charged and 100 is fully charged.  
         /// </summary>
         /// <exception cref="System.InvalidOperationException">The system does not have a battery.</exception>
-        /// <exception cref="System.PlatformNotSupportedException">Requires Vista/Windows Server 2008.</exception>
         /// <value>An <see cref="System.Int32"/> value.</value>
         public static int BatteryLifePercent
         {
@@ -299,7 +274,6 @@ namespace Microsoft.WindowsAPICodePack.ApplicationServices
             {
                 // Because of the way this value is being calculated, it should not be limited to granularity
                 // as the data from the event (old way) was.
-                CoreHelpers.ThrowIfNotVista();
                 if (!Power.GetSystemBatteryState().BatteryPresent)
                     throw new InvalidOperationException(LocalizedMessages.PowerManagerBatteryNotPresent);
 
@@ -313,14 +287,11 @@ namespace Microsoft.WindowsAPICodePack.ApplicationServices
         /// <summary>
         /// Gets a value that indictates whether the monitor is on. 
         /// </summary>
-        /// <exception cref="System.PlatformNotSupportedException">Requires Vista/Windows Server 2008.</exception>
         /// <value>A <see cref="System.Boolean"/> value.</value>
         public static bool IsMonitorOn
         {
             get
             {
-                CoreHelpers.ThrowIfNotVista();
-
                 lock (monitoronlock)
                 {
                     if (isMonitorOn == null)
@@ -341,14 +312,11 @@ namespace Microsoft.WindowsAPICodePack.ApplicationServices
         /// <summary>
         /// Gets the current power source.  
         /// </summary>
-        /// <exception cref="System.PlatformNotSupportedException">Requires Vista/Windows Server 2008.</exception>
         /// <value>A <see cref="PowerSource"/> value.</value>
         public static PowerSource PowerSource
         {
             get
             {
-                CoreHelpers.ThrowIfNotVista();
-
                 if (IsUpsPresent)
                 {
                     return PowerSource.Ups;

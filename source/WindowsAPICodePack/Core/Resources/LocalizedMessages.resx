@@ -156,9 +156,6 @@
   <data name="CoreHelpersRunningOn7" xml:space="preserve">
     <value>Only supported on Windows 7 or newer.</value>
   </data>
-  <data name="CoreHelpersRunningOnVista" xml:space="preserve">
-    <value>Only supported on Windows Vista or newer.</value>
-  </data>
   <data name="DialogCollectionCannotHaveDuplicateNames" xml:space="preserve">
     <value>Dialog cannot have more than one control with the same name.</value>
   </data>

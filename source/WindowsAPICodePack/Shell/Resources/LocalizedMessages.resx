@@ -144,9 +144,6 @@
   <data name="CommonFileDialogNotClosed" xml:space="preserve">
     <value>File name not available - dialog has not closed yet.</value>
   </data>
-  <data name="CommonFileDialogRequiresVista" xml:space="preserve">
-    <value>Common File Dialog requires Windows Vista or later.</value>
-  </data>
   <data name="CommonFiltersOffice" xml:space="preserve">
     <value>Office Files</value>
   </data>
@@ -395,9 +392,6 @@
   </data>
   <data name="ShellObjectCreationFailed" xml:space="preserve">
     <value>Shell item could not be created.</value>
-  </data>
-  <data name="ShellObjectFactoryPlatformNotSupported" xml:space="preserve">
-    <value>Shell Object creation requires Windows Vista or higher operating system.</value>
   </data>
   <data name="ShellObjectFactoryUnableToCreateItem" xml:space="preserve">
     <value>Unable to Create Shell Item.</value>
