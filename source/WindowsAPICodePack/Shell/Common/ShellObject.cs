@@ -387,7 +387,7 @@ namespace Microsoft.WindowsAPICodePack.Shell
 
             if (_internalPIDL != IntPtr.Zero)
             {
-                ShellNativeMethods.ILFree(_internalPIDL);
+                Marshal.FreeCoTaskMem(_internalPIDL);
                 _internalPIDL = IntPtr.Zero;
             }
 

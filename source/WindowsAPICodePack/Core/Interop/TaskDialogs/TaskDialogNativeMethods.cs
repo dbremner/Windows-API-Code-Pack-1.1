@@ -92,7 +92,7 @@ namespace Microsoft.WindowsAPICodePack.Dialogs
         }
 
         // NOTE: Packing must be set to 4 to make this work on 64-bit platforms.
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto, Pack = 4)]
+        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode, Pack = 4)]
         internal struct TaskDialogButton
         {
             public TaskDialogButton(int buttonId, string text)

@@ -38,7 +38,7 @@ namespace Microsoft.WindowsAPICodePack.Shell.Interop
             IntPtr instanceHandle,
             IntPtr additionalData);
 
-        [DllImport("User32.dll")]
+        [DllImport("User32.dll", CharSet = CharSet.Unicode)]
         [return: MarshalAs(UnmanagedType.Bool)]
         public static extern bool GetMessage(
             [Out] out Message message,
@@ -46,14 +46,14 @@ namespace Microsoft.WindowsAPICodePack.Shell.Interop
             uint filterMinMessage,
             uint filterMaxMessage);
 
-        [DllImport("User32.dll")]
+        [DllImport("User32.dll", CharSet = CharSet.Unicode)]
         public static extern int DefWindowProc(
             IntPtr hwnd,
             uint msg,
             IntPtr wparam,
             IntPtr lparam);
 
-        [DllImport("User32.dll")]
+        [DllImport("User32.dll", CharSet = CharSet.Unicode)]
         public static extern void DispatchMessage([In] ref Message message);
 
         public delegate int WndProcDelegate(IntPtr hwnd, uint msg, IntPtr wparam, IntPtr lparam);

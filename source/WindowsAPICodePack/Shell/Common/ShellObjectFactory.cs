@@ -144,7 +144,7 @@ namespace Microsoft.WindowsAPICodePack.Shell
             }
             finally
             {
-                ShellNativeMethods.ILFree(pidl);
+                Marshal.FreeCoTaskMem(pidl);
             }
         }
 

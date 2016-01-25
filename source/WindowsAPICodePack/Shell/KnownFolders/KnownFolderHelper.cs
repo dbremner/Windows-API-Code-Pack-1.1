@@ -2,6 +2,7 @@
 
 using System;
 using System.Diagnostics;
+using System.Runtime.InteropServices;
 using Microsoft.WindowsAPICodePack.Shell.Resources;
 using MS.WindowsAPICodePack.Internal;
 
@@ -195,8 +196,8 @@ namespace Microsoft.WindowsAPICodePack.Shell
             }
             finally
             {
-                ShellNativeMethods.ILFree(pidl);
-                ShellNativeMethods.ILFree(pidl2);
+                Marshal.FreeCoTaskMem(pidl);
+                Marshal.FreeCoTaskMem(pidl2);
             }
 
         }

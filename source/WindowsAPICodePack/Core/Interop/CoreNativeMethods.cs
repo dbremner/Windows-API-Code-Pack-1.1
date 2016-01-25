@@ -27,7 +27,7 @@ namespace MS.WindowsAPICodePack.Internal
         /// <param name="wparam">Specifies additional message-specific information.</param>
         /// <param name="lparam">Specifies additional message-specific information.</param>
         /// <returns>A return code specific to the message being sent.</returns>     
-        [DllImport("user32.dll", CharSet = CharSet.Auto, PreserveSig=false, SetLastError = true)]
+        [DllImport("user32.dll", CharSet = CharSet.Unicode, PreserveSig=false, SetLastError = true)]
         public static extern void PostMessage(
             IntPtr windowHandle,
             WindowMessage message,
@@ -49,7 +49,7 @@ namespace MS.WindowsAPICodePack.Internal
         /// <param name="wparam">Specifies additional message-specific information.</param>
         /// <param name="lparam">Specifies additional message-specific information.</param>
         /// <returns>A return code specific to the message being sent.</returns>     
-        [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        [DllImport("user32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
         public static extern IntPtr SendMessage(
             IntPtr windowHandle,
             WindowMessage message,
@@ -71,7 +71,7 @@ namespace MS.WindowsAPICodePack.Internal
         /// <param name="wparam">Specifies additional message-specific information.</param>
         /// <param name="lparam">Specifies additional message-specific information.</param>
         /// <returns>A return code specific to the message being sent.</returns>        
-        [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        [DllImport("user32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
         public static extern IntPtr SendMessage(
             IntPtr windowHandle,
             uint message,
@@ -93,7 +93,7 @@ namespace MS.WindowsAPICodePack.Internal
         /// <param name="wparam">Specifies additional message-specific information.</param>
         /// <param name="lparam">Specifies additional message-specific information.</param>
         /// <returns>A return code specific to the message being sent.</returns>
-        [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        [DllImport("user32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
         public static extern IntPtr SendMessage(
            IntPtr windowHandle,
            uint message,
@@ -138,7 +138,7 @@ namespace MS.WindowsAPICodePack.Internal
         /// <param name="lparam">Specifies additional message-specific information.</param>
         /// <returns>A return code specific to the message being sent.</returns>
 
-        [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        [DllImport("user32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
         public static extern IntPtr SendMessage(
             IntPtr windowHandle,
             uint message,

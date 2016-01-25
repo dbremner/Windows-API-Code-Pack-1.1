@@ -465,7 +465,7 @@ namespace Microsoft.WindowsAPICodePack.Shell
 
         #region Shell Structs
 
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
+        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
         internal struct FilterSpec
         {
             [MarshalAs(UnmanagedType.LPWStr)]
@@ -552,9 +552,6 @@ namespace Microsoft.WindowsAPICodePack.Shell
 
         [DllImport("shell32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
         internal static extern uint ILGetSize(IntPtr pidl);
-
-        [DllImport("shell32.dll", CharSet = CharSet.None)]
-        public static extern void ILFree(IntPtr pidl);
 
         [DllImport("gdi32.dll")]
         [return: MarshalAs(UnmanagedType.Bool)]
